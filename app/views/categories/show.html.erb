@@ -9,7 +9,7 @@
       </h2>
       <%# カテゴリ内リストの総数表示 %>
       <div>
-        <%# カテゴリ内のリスト数：<%= @category.lists.length%> %>
+        カテゴリ内のリスト数：<%= @category.lists.length %>
       </div>
       <%# /カテゴリ内リストの総数表示 %>
       <div>
@@ -24,17 +24,17 @@
     </div>
     <div class="list-contents">
       <ul class='list-lists'>
-        <%# <% if @lists.present? %> %>
-          <%# <% @lists.each do |list| %> %>
-            <%# <li class='list'> %>
-              <%# <div class='list-info'> %>
-                <%# <h3 class='list-title'> %>
-                  <%# <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %> %>
-                <%# </h3> %>
-              <%# </div>         %>
-            <%# </li> %>
-          <%# <% end %> %>
-        <%# <% end %> %>
+        <% if @category.lists.present? %>
+          <% @category.lists.each do |list| %>
+            <li class='list'>
+              <div class='list-info'>
+                <h3 class='list-title'>
+                  <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %>
+                </h3>
+              </div>        
+            </li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
