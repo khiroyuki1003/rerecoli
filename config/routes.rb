@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:new, :create, :show, :edit, :update] do
     resources :categories, only: [:new, :create, :show, :edit, :update, :destroy] do
-      resources :lists, only: [:new, :create, :show, :edit, :update, :destroy] 
+      resources :lists, only: [:new, :create, :show, :edit, :update, :destroy] do
+        resources :list_deadlines, only: [:index, :edit, :update]
+      end
     end
   end
 end
