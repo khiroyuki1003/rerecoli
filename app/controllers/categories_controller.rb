@@ -28,11 +28,14 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    if @category.update(category_params)
+      redirect_to profile_category_path(@user.profile.id, @category.id)
+    else
+      render :edit
+    end
   end
 
 
