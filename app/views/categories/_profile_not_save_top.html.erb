@@ -1,0 +1,13 @@
+<div>
+  こんにちは、<%= @user.email.gsub(/@.+/, "") %> さん
+</div>
+<div>
+  プロフィールを登録してアプリを開始しましょう
+</div>
+<div>
+  <%= link_to "プロフィール登録はこちらから", new_profile_path %>
+</div>
+
+<div>
+  <%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "logout"  %>
+</div>

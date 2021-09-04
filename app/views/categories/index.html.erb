@@ -1,2 +1,5 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<% if user_signed_in? %>
+  <%= render "login_user_top" %>
+<% else %>
+  <%= render "new_user_top" %>
+<% end %>
