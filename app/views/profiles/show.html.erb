@@ -1,0 +1,33 @@
+ <div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <div>
+      <%= @profile.nickname %>さんのプロフィール
+    </div>
+
+    <div>
+      <%= @profile.precious_word %>
+    </div>
+
+    <div>
+      <div>
+        <%= @profile.birth_date.year %>年<%= @profile.birth_date.month %>月<%= @profile.birth_date.day %>日生まれ
+      </div>
+      <div>
+        <% if (@profile.birth_date.month == Date.today.month && @profile.birth_date.day >= Date.today.day) || @profile.birth_date.month >= Date.today.month %>
+          <%= (Date.today.year - @profile.birth_date.year - 1) %>歳
+        <% else %>
+          <%= Date.today.year - @profile.birth_date.year  %>歳
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <%= link_to "プロフィールの編集",  edit_profile_path(@profile.id) %>
+    </div>
+  </div>
+</div>  
+
+  
