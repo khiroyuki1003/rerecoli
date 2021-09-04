@@ -27,6 +27,14 @@ class CategoriesController < ApplicationController
 
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
 
 
   private 
