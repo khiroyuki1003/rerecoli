@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  # has_many :categories
+  has_many :categories
   # has_many :list_deadlines
 
   with_options presence: true do
@@ -16,3 +16,4 @@ class Profile < ApplicationRecord
      maximum: 100, message:"is invalid. Please enter at least 100 characters"
     }
 end
+ 
