@@ -42,9 +42,16 @@
       <div>
         <%= link_to "達成目標日を変更する", edit_profile_category_list_list_deadline_path(@user.profile.id, @category.id, @list.id, @list.list_deadline.id )  %>
       </div>
-      
 
+      <%# リマインド新規作成へのリンク %>
+      <div>
+        <%= link_to "プロセスを追加する",    new_profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id)  %>
+      </div>
+      <%# /リマインド新規作成へのリンク %>
 
+      <%# リマインド一覧表示 %>
+          <%# リマインド詳細へのリンク。タイトル・期限を表示 %>
+      <%# /リマインド一覧表示 %>
       <div>
         <%= link_to "リストを削除する",  profile_category_list_path(@user.profile.id, @category.id, @list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' } %>
       </div>

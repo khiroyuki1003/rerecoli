@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:new, :create, :show, :edit, :update, :destroy] do
       resources :lists, only: [:new, :create, :show, :edit, :update, :destroy] do
         resources :list_deadlines, only: [:index, :edit, :update]
+        resources :list_reminds
       end
     end
   end
