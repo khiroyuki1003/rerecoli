@@ -1,7 +1,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_many :categories
-  # has_many :list_deadlines
+  has_many :list_deadlines
+  has_many :list_reminds
 
   with_options presence: true do
     validates :nickname, length: {
