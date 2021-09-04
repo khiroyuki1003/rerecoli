@@ -10,7 +10,7 @@ class Profile < ApplicationRecord
     validates :birth_date
   end
 
-  validates :nickname, uniqueness: { message: "That nickname is already in use" }
+  validates :nickname, uniqueness: { case_sensitive: false, message: "is invalid. This nickname is already in use" }
 
   validates :precious_word, length: {
      maximum: 100, message:"is invalid. Please enter at least 100 characters"
