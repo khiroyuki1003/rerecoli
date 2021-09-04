@@ -33,6 +33,11 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to profile_category_path(@user.profile.id, @category.id)
+  end
+
   private
   def get_user
     if user_signed_in?
