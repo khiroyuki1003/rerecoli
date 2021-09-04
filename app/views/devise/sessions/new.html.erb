@@ -1,3 +1,8 @@
+<div class="header-logo">
+  <%= link_to 'RecoLi', root_path %>
+</div>
+
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -23,4 +28,7 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div>
+  <%= link_to  '新規登録はこちらから',  new_user_registration_path %>
+</div>
+
