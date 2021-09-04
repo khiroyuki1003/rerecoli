@@ -24,7 +24,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
+    if @category.lists.present?
+      @lists = List.where(category_id: @category.id)
+    end 
   end
 
   def edit

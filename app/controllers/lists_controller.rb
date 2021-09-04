@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   before_action :get_user
   before_action :set_category, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :category_access_check, only: [:new, :create, :show, :edit, :update, :destroy]
-  # before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def new
     @list = ListListDeadline.new
@@ -16,7 +16,11 @@ class ListsController < ApplicationController
       redirect_to  profile_category_path(@user.profile.id, @category.id)
     else
       render :new
-    end
+    end 
+  end
+
+  def show
+
   end
 
   private
