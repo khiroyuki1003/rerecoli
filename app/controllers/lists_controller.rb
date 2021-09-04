@@ -20,7 +20,17 @@ class ListsController < ApplicationController
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    if @list.update(only_list_params)
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    else
+      render :edit
+    end
   end
 
   private
