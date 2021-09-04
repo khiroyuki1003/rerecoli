@@ -19,7 +19,7 @@
         <%= link_to "カテゴリを削除する",  profile_category_path(@user.profile.id, @category.id), method: :delete, data: { confirm: '削除を実行すると、カテゴリ内で作成したリストやプロセス、リマインドなどが全て削除されます。削除してよろしいですか？' } %>
       </div>
       <div>
-        <%# <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id) %> %>
+        <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id) %>
       </div>
     </div>
     <div class="list-contents">

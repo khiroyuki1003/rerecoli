@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root to: "categories#index"
 
   resources :profiles, only: [:new, :create, :show, :edit, :update] do
-    resources :categories, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :categories, only: [:new, :create, :show, :edit, :update, :destroy] do
+      resources :lists, only: [:new, :create, :show, :edit, :update, :destroy] 
+    end
   end
 end
