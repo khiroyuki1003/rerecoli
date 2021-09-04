@@ -21,6 +21,18 @@ class ProfilesController < ApplicationController
   def show
   end
 
+  def edit
+
+  end
+
+  def update
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile.id)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_user
