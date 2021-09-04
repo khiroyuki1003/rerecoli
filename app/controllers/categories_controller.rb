@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :get_user
-  # before_action :set_category, only: [:show, :edit, :update, :destroy]
-  # before_action :category_access_check, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :category_access_check, only: [:show, :edit, :update, :destroy]
 
   def index
     if user_signed_in? && @user.profile.present? && @user.profile.categories.present?
@@ -21,6 +21,10 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+
   end
 
 

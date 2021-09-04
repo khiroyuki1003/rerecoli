@@ -3,18 +3,18 @@
     <h2 class="word-title">あなたが大切にしている言葉</h2>
     <div class="word-content"><%= @user.profile.precious_word %></div>
   </div>
-  <%# <h2 class='title'>カテゴリ一覧</h2> %>
-  <%# <div> %>
-    <%# <ul class='category-lists'> %>
-      <%# <% if @categories.present? %> %>
-        <%# <% @categories.each do |category| %> %>
-          <%# <li class='list'> %>
+  <h2 class='title'>カテゴリ一覧</h2>
+  <div>
+    <ul class='category-lists'>
+      <% if @categories.present? %>
+        <% @categories.each do |category| %>
+          <li class='list'>
             
-            <%# <div class='category-info'> %>
+            <div class='category-info'>
               <%# カテゴリ名表示 %>
-              <%# <h3 class='category-name'> %>
-                <%# <%= link_to category.category_name,  profile_category_path(@user.profile.id, category.id) %> %>
-              <%# </h3> %>
+              <h3 class='category-name'>
+                <%= link_to category.category_name,  profile_category_path(@user.profile.id, category.id) %>
+              </h3>
               <%# /カテゴリ名表示 %>
               <%# リストを上から３つまで取得して表示 %>
               <%# <div class="list-contents">
@@ -39,9 +39,9 @@
               <%# </div> %>
               <%# リストを上から３つまで取得して表示 %>
             <%# </div>         %>
-          <%# </li> %>
-        <%# <% end %> %>
-      <%# <% end %> %>
-    <%# </ul> %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
 </div> 
