@@ -38,7 +38,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-
+  def destroy
+    @category.destroy
+    redirect_to root_path
+  end
 
   private 
   def get_user
