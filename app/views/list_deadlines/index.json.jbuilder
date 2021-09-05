@@ -10,6 +10,6 @@ json.array! @reminds do |remind|
   json.id remind.id
   json.title remind.list_remind_title
   json.start remind.list_remind_date
-  json.url profile_category_list_list_remind_path(remind.profile.id, remind.list.id, remind.list.id, remind.id)
+  json.url profile_category_list_list_remind_path(remind.profile.id, remind.list.category.id, remind.list.id, remind.id)
   json.color '#2cb4ad'
 end
