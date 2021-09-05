@@ -22,14 +22,14 @@
 </div> 
 <%# ユーザーがカテゴリとリストを持っている場合のみカレンダーを表示したい %>
 <div>
-  <%# <% if @user.profile.categories.present? %> %>
-    <%# <% @user.profile.categories.each do |category| %> %>
-      <%# <% if category.lists.present? %> %>
-        <%# <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(category.profile.id, category.id, category.lists.first.id)  %> %>
-        <%# <% if category.lists.present? then %> %>
-          <%# <% break %>  %>
-        <%# <% end %>      %>
-      <%# <% end %> %>
-    <%# <% end %> %>
-  <%# <% end %> %>
+  <% if @user.profile.categories.present? %>
+    <% @user.profile.categories.each do |category| %>
+      <% if category.lists.present? %>
+        <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(category.profile.id, category.id, category.lists.first.id)  %>
+        <% if category.lists.present? then %>
+          <% break  %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>  

@@ -6,6 +6,12 @@ class ListDeadlinesController < ApplicationController
   before_action :set_list
   before_action :set_list_deadline, only: [:edit, :update]
 
+  def index 
+    @events = ListDeadline.where(profile_id: @user.profile.id)
+    @reminds = ListRemind.where(profile_id: @user.profile.id)
+    # binding.pry
+  end
+
   def edit
   end
   

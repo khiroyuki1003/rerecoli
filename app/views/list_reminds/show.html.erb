@@ -20,7 +20,7 @@
 
        <div>
        達成目標日
-        <%# <%=link_to @list_remind.list_remind_date.strftime('%Y/%m/%d'), profile_category_list_list_deadlines_path(@user.profile.id, @category.id, @list.id)%>（<%= @list_remind.list_remind_time.strftime( "%H:%M" ) %>にリマインド） %>
+        <%=link_to @list_remind.list_remind_date.strftime('%Y/%m/%d'), profile_category_list_list_deadlines_path(@user.profile.id, @category.id, @list.id)%>（<%= @list_remind.list_remind_time.strftime( "%H:%M" ) %>にリマインド） 
       </div>
       <div>
        目標年時の年齢
@@ -34,7 +34,11 @@
       </div>
 
       <div>
-        <%= link_to "リマインドを削除する", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, @list_remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' } %>
+        <%= link_to "プロセスを削除する", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, @list_remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' } %>
+      </div>
+
+      <div>
+        <%= link_to "戻る", profile_category_list_path(@user.profile.id, @category.id, @list.id) %>
       </div>
     </div> 
   </div>  
