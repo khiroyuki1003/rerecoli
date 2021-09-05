@@ -4,12 +4,11 @@ class ListDeadlinesController < ApplicationController
   before_action :set_category
   before_action :category_access_check
   before_action :set_list
-  before_action :set_list_deadline, only: [:edit, :update]
+  before_action :set_list_deadline, only: [:edit, :update, :done]
 
   def index 
     @events = ListDeadline.where(profile_id: @user.profile.id)
     @reminds = ListRemind.where(profile_id: @user.profile.id)
-    # binding.pry
   end
 
   def edit
@@ -23,7 +22,21 @@ class ListDeadlinesController < ApplicationController
     end 
   end
 
-
+  def done
+    if @list_deadline.status == "unfinished"
+      @list_deadline.update(status: "done")
+      @user = User.find(current_user.id)
+      @category = Category.find(params[:category_id])
+      @list = List.find(params[:list_id]) 
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    else
+      @list_deadline.update(status: "unfinished")
+      @user = User.find(current_user.id)
+      @category = Category.find(params[:category_id])
+      @list = List.find(params[:list_id]) 
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    end
+  end
 
   private
   def get_user

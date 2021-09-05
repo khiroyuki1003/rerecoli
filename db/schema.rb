@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_093753) do
+ActiveRecord::Schema.define(version: 2021_09_05_085458) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "category_name", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_09_04_093753) do
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status", default: "unfinished"
     t.index ["list_id"], name: "index_list_deadlines_on_list_id"
     t.index ["profile_id"], name: "index_list_deadlines_on_profile_id"
   end
