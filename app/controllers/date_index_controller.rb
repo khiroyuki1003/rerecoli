@@ -3,14 +3,14 @@ class DateIndexController < ApplicationController
   before_action :get_user
 
   def unfinished
-    @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "unfinished")
-    @reminds = ListRemind.where(profile_id: @user.profile.id, status: "unfinished")
+    @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "unfinished").order(list_deadline_date: "ASC")
+    @reminds = ListRemind.where(profile_id: @user.profile.id, status: "unfinished").order(list_remind_date: "ASC")
         # binding.pry
   end
 
   def done
-    @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "done")
-    @reminds = ListRemind.where(profile_id: @user.profile.id, status: "done")
+    @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "done").order(list_deadline_date: "DESC")
+    @reminds = ListRemind.where(profile_id: @user.profile.id, status: "done").order(list_remind_date: "DESC")
 
   end
 
