@@ -63,6 +63,17 @@
                     <%= remind.list_remind_date.strftime('%Y/%m/%d') %>にリマインド
                   </div>
                   <div>
+                    <% if remind.status == "unfinished" %>
+                      <div>
+                        <%= link_to 'プロセス達成！', done_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), method: :post %>
+                      </div>
+                    <% else %>
+                      <div>
+                        <%= link_to '未達成に戻す', done_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), method: :post %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div>
                     <%= link_to "編集", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id) %>
                   </div>
                   <div>

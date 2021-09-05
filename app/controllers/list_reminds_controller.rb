@@ -4,7 +4,7 @@ class ListRemindsController < ApplicationController
   before_action :set_category
   before_action :category_access_check
   before_action :set_list
-  before_action :set_list_remind, only: [:show, :edit, :update, :destroy]
+  before_action :set_list_remind, only: [:show, :edit, :update, :destroy, :done]
 
   def new
     @list_remind = ListRemind.new
@@ -36,6 +36,22 @@ class ListRemindsController < ApplicationController
   def destroy
     @list_remind.destroy
     redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+  end
+
+  def done
+    if @list_remind.status == "unfinished"
+      @list_remind.update(status: "done")
+      @user = User.find(current_user.id)
+      @category = Category.find(params[:category_id])
+      @list = List.find(params[:list_id]) 
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    else
+      @list_remind.update(status: "unfinished")
+      @user = User.find(current_user.id)
+      @category = Category.find(params[:category_id])
+      @list = List.find(params[:list_id]) 
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    end
   end
 
   private

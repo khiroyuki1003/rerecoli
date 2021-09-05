@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   post '/profiles/:profile_id/categories/:category_id/lists/:list_id/list_deadlines/:id/done' => 'list_deadlines#done',   as: 'done_profile_category_list_list_deadline'
+  post '/profiles/:profile_id/categories/:category_id/lists/:list_id/list_reminds/:id/done' => 'list_reminds#done',   as: 'done_profile_category_list_list_remind'
 end
