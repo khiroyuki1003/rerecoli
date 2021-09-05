@@ -4,20 +4,38 @@ class ListRemindsController < ApplicationController
   before_action :set_category
   before_action :category_access_check
   before_action :set_list
-  before_action :set_list_reminds, only: [:edit, :update, :destroy]
+  before_action :set_list_remind, only: [:show, :edit, :update, :destroy]
 
   def new
     @list_remind = ListRemind.new
   end
 
   def create
-    binding.pry
     @list_remind  = ListRemind.new(list_remind_params)
     if @list_remind.save
       redirect_to  profile_category_list_path(@user.profile.id, @category.id, @list.id)
     else
       render :new
     end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @list_remind.update(list_remind_params)
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    else
+      render :edit
+    end 
+  end
+
+  def destroy
+    @list_remind.destroy
+    redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
   end
 
   private
@@ -41,8 +59,8 @@ class ListRemindsController < ApplicationController
     @list = List.find(params[:list_id]) 
   end
 
-  def set_list_reminds
-    @list_reminds = ListRemind.find(params[:id])
+  def set_list_remind
+    @list_remind = ListRemind.find(params[:id])
   end
 
   def list_remind_params

@@ -50,6 +50,31 @@
       <%# /リマインド新規作成へのリンク %>
 
       <%# リマインド一覧表示 %>
+      <div class="list-contents">
+        <ul class='list-lists'>
+          <% if @list.list_reminds.present? %>
+            <% @list.list_reminds.each do |remind| %>
+              <li class='list'>
+                <div class='list-info'>
+                  <h3 class='list-title'>
+                    <%# <%= remind.list_remind_title %> %>
+                    <%= link_to remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id) %>
+                  </h3>
+                  <div>
+                    <%= remind.list_remind_date.strftime('%Y/%m/%d') %>にリマインド
+                  </div>
+                  <div>
+                    <%= link_to "編集", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id) %>
+                  </div>
+                  <div>
+                    <%= link_to "削除", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' } %>
+                  </div>
+                </div>        
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
           <%# リマインド詳細へのリンク。タイトル・期限を表示 %>
       <%# /リマインド一覧表示 %>
       <div>
