@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <div class="contents">
+      <%= form_with model: @list_deadline, url: profile_category_list_list_deadline_path(@user.profile.id, @category.id, @list.id, @list_deadline.id), local: true do |f| %>
+        <div class='form-wrap'>
+          <div class='form-header'>
+            <h1 class='form-header-text'>
+              達成目標日編集
+            </h1>
+          </div>
+
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">達成目標日※必須</label>
+            </div>
+            <%= raw sprintf(
+              f.date_select(
+              :list_deadline_date, use_month_numbers: true, 
+              use_two_digit_numbers: true,
+              start_year: Time.now.year,
+              end_year: ( Time.now.year + 100 ),
+              date_separator: '%s'),
+              '年 ', '月 ') + '日' %>
+          </div>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">リマインドする時刻※必須</label>
+            </div>
+            <%= f.time_select(:list_deadline_time, minute_step: 15, default: Date.today + 10.hour ) %>
+          </div>
+
+          <div class='register-btn'>
+            <%= f.submit "変更する" ,class:"register-red-btn" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

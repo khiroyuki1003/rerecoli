@@ -9,7 +9,7 @@
       </h2>
       <%# カテゴリ内リストの総数表示 %>
       <div>
-        <%# カテゴリ内のリスト数：<%= @category.lists.length%> %>
+        カテゴリ内のリスト数：<%= @category.lists.length %>
       </div>
       <%# /カテゴリ内リストの総数表示 %>
       <div>
@@ -19,22 +19,22 @@
         <%= link_to "カテゴリを削除する",  profile_category_path(@user.profile.id, @category.id), method: :delete, data: { confirm: '削除を実行すると、カテゴリ内で作成したリストやプロセス、リマインドなどが全て削除されます。削除してよろしいですか？' } %>
       </div>
       <div>
-        <%# <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id) %> %>
+        <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id) %>
       </div>
     </div>
     <div class="list-contents">
       <ul class='list-lists'>
-        <%# <% if @lists.present? %> %>
-          <%# <% @lists.each do |list| %> %>
-            <%# <li class='list'> %>
-              <%# <div class='list-info'> %>
-                <%# <h3 class='list-title'> %>
-                  <%# <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %> %>
-                <%# </h3> %>
-              <%# </div>         %>
-            <%# </li> %>
-          <%# <% end %> %>
-        <%# <% end %> %>
+        <% if @lists.present? %>
+          <% @lists.each do |list| %>
+            <li class='list'>
+              <div class='list-info'>
+                <h3 class='list-title'>
+                  <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %>
+                </h3>
+              </div>        
+            </li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>

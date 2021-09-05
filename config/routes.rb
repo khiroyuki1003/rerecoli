@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   root to: "categories#index"
 
   resources :profiles, only: [:new, :create, :show, :edit, :update] do
-    resources :categories, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :categories, only: [:new, :create, :show, :edit, :update, :destroy] do
+      resources :lists, only: [:new, :create, :show, :edit, :update, :destroy] do
+        resources :list_deadlines, only: [:index, :edit, :update]
+        resources :list_reminds
+      end
+    end
   end
 end

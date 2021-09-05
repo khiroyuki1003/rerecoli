@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <div class="list-contents">
+      <h2 class="title">
+        <%= @list_remind.list_remind_title %>/
+        <div class="list-category-title">
+          <%= @list.list_title %>
+        </div>
+      </h2>
+
+      <div>
+        <%= @list_remind.list_remind_detail%>
+      </div>
+      <div>
+        <%= link_to "プロセスの編集", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, @list_remind.id) %>
+      </div>
+
+       <div>
+       達成目標日
+        <%# <%=link_to @list_remind.list_remind_date.strftime('%Y/%m/%d'), profile_category_list_list_deadlines_path(@user.profile.id, @category.id, @list.id)%>（<%= @list_remind.list_remind_time.strftime( "%H:%M" ) %>にリマインド） %>
+      </div>
+      <div>
+       目標年時の年齢
+       <div>
+          <% if ( @user.profile.birth_date.month == @list_remind.list_remind_date.month && @user.profile.birth_date.day >= @list_remind.list_remind_date.day ) || @user.profile.birth_date.month >= @list_remind.list_remind_date.month %>
+            <%= @list_remind.list_remind_date.year - @user.profile.birth_date.year - 1 %>歳
+          <% else %>
+            <%= @list_remind.list_remind_date.year - @user.profile.birth_date.year %>歳
+          <% end %>
+        </div>
+      </div>
+
+      <div>
+        <%= link_to "リマインドを削除する", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, @list_remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' } %>
+      </div>
+    </div> 
+  </div>  
+</div>
