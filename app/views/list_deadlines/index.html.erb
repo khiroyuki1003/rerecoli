@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <div id="calendar"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+        var profile_id = '<%= @user.profile.id %>';
+        var category_id = '<%= @category.id %>';
+        var list_id = '<%= @list.id %>'
+
+
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+
+          selectable: true,
+          headerToolbar: {
+          left: "prev,next today",
+          center: "title",
+          right: "prevYear,nextYear dayGridMonth,timeGridWeek"
+          },
+
+          dayMaxEvents: true,
+          height: "100%",
+              
+              //  events: [
+              //     {
+              //       title: 'Event1',
+              //       start: '2021-09-07'
+              //     },
+              //     {
+              //       title: 'Event2',
+              //       start: '2020-12-10',
+              //       end: '2020-12-12',
+              //     }
+              //   ],
+
+              eventSources: [
+
+                // your event source
+                {
+                  url:`/profiles/${profile_id}/categories/${category_id}/lists/${list_id}/list_deadlines.json`, // use the `url` property
+                  color: '#00947a',    // an option!
+                  textColor: '#fafdff'  // an option!
+                }
+
+                // any other sources...
+              ],    
+        });
+        calendar.render();
+      });
+    </script>
+  </div>
+</div>
