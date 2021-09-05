@@ -25,7 +25,15 @@
   <% if @user.profile.categories.present? %>
     <% @user.profile.categories.each do |category| %>
       <% if category.lists.present? %>
-        <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(category.profile.id, category.id, category.lists.first.id)  %>
+        <div>
+          <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(category.profile.id, category.id, category.lists.first.id)  %>
+        </div>
+        <div>
+          <%= link_to "未達成一覧",  unfinished_profile_date_index_path(@user.profile.id)  %>
+        </div>
+        <div>
+          <%= link_to "達成一覧",  done_profile_date_index_path(@user.profile.id)  %>  
+        </div>
         <% if category.lists.present? then %>
           <% break  %>
         <% end %>
@@ -33,3 +41,4 @@
     <% end %>
   <% end %>
 </div>  
+

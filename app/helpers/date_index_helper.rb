@@ -1,0 +1,2 @@
+module DateIndexHelper
+end

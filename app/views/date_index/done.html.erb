@@ -1,0 +1,50 @@
+ <div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1 class="index-title">
+      達成一覧
+    </h1>
+    <div class="date-index">
+      <div class="list-index" >
+        <h3>
+          やりたい事
+        </h3>
+        <div>
+           <% if @deadlines.present? %>
+            <% @deadlines.each do |deadline| %>
+                <div>
+                  <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id) %>
+                  <%= deadline.list_deadline_date.strftime('%Y/%m/%d') %>  (<%= deadline.list_deadline_time.strftime( "%H:%M" ) %>)
+                </div>
+              <% end %>
+          <% else %>
+            達成したリストはありません。
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="remind-index">
+        <h3>
+          プロセス
+        </h3>
+        <div>
+          <% if @reminds.present? %>
+            <% @reminds.each do |remind| %>
+              <div>
+                <%= link_to remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, remind.list.category.id, remind.list.id, remind.id) %>
+                <%= remind.list_remind_date.strftime('%Y/%m/%d') %>  (<%= remind.list_remind_time.strftime( "%H:%M" ) %>)
+              </div>
+            <% end %>
+          <% else %>
+            達成したプロセスはまだありません。  
+          <% end %>
+        </div>
+      </div> 
+    </div> 
+  </div>
+</div>  
+
+  

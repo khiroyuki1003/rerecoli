@@ -1,0 +1,23 @@
+// Place all the styles related to the date-index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-title{
+  margin: 20px 0;
+}
+
+
+
+.date-index {
+	display: flex; 
+  height: calc(100% - 88px);
+}
+
+.list-index {
+	flex-grow: 1;
+}
+
+
+.remind-index {
+	flex-grow: 1;
+}
