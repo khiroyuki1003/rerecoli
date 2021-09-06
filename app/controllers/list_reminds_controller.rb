@@ -26,11 +26,13 @@ class ListRemindsController < ApplicationController
   end
 
   def update
-    if @list_remind.update(list_remind_params)
+    @new_list_remind = ListRemind.new(list_remind_params)
+    if @new_list_remind.save
+      @list_remind.destroy
       redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
     else
       render :edit
-    end 
+    end
   end
 
   def destroy

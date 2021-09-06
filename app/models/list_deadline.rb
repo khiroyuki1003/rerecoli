@@ -1,7 +1,7 @@
 class ListDeadline < ApplicationRecord
   belongs_to :profile
   belongs_to :list 
-  has_many :reminds
+  has_many :reminds, dependent: :destroy
 
   with_options presence: true do
     validates :list_deadline_date

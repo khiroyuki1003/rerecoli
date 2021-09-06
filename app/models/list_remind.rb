@@ -1,7 +1,7 @@
 class ListRemind < ApplicationRecord
   belongs_to :profile
   belongs_to :list 
-  has_many :reminds
+  has_many :reminds, dependent: :delete_all
 
   with_options presence: true do
     validates :list_remind_date
