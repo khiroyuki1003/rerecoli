@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resources :list_reminds
       end
     end
+    resources :reminds, only: :index
   end
 
   post '/profiles/:profile_id/categories/:category_id/lists/:list_id/list_deadlines/:id/done' => 'list_deadlines#done',   as: 'done_profile_category_list_list_deadline'
