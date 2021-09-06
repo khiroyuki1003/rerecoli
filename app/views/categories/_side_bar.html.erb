@@ -34,6 +34,12 @@
         <div>
           <%= link_to "達成一覧",  done_profile_date_index_path(@user.profile.id)  %>  
         </div>
+        <div>
+          <%= link_to "リマインド一覧",   profile_reminds_path(@user.profile.id)  %>  
+            <% if unchecked_reminds.any? %>
+              <i class="fa fa-circle notification-circle" style="color: gold;" ></i>
+            <% end %>
+        </div>
         <% if category.lists.present? then %>
           <% break  %>
         <% end %>
