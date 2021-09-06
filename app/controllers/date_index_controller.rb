@@ -4,12 +4,12 @@ class DateIndexController < ApplicationController
 
   def unfinished
     @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "unfinished").order(:list_deadline_date).order(list_deadline_time: "ASC")
-    @reminds = ListRemind.where(profile_id: @user.profile.id, status: "unfinished").order(:list_remind_date).order(list_remind_time: "ASC")
+    @list_reminds = ListRemind.where(profile_id: @user.profile.id, status: "unfinished").order(:list_remind_date).order(list_remind_time: "ASC")
   end
 
   def done
     @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "done").order(:list_deadline_date).order(list_deadline_time: "DESC")
-    @reminds = ListRemind.where(profile_id: @user.profile.id, status: "done").order(:list_remind_date).order(list_remind_time: "DESC")
+    @list_reminds = ListRemind.where(profile_id: @user.profile.id, status: "done").order(:list_remind_date).order(list_remind_time: "DESC")
   end
 
   private
@@ -19,3 +19,4 @@ class DateIndexController < ApplicationController
     end
   end
 end
+ 
