@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1>
+      リマインド一覧
+    </h1>
+    <% if @reminds.present? %>
+      <div class="reminds">
+        <%= render partial: "remind", collection: @reminds %>
+      </div>
+    <% else %>
+      <div>
+        リマインドはありません
+      </div>
+    <% end %>
+  </div>
+</div>
