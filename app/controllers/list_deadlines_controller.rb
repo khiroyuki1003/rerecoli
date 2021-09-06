@@ -10,16 +10,18 @@ class ListDeadlinesController < ApplicationController
     @events = ListDeadline.where(profile_id: @user.profile.id)
     @reminds = ListRemind.where(profile_id: @user.profile.id)
   end
-
+ 
   def edit
   end
   
   def update
-    if @list_deadline.update(list_deadline_params)
+    @new_deadline = ListDeadline.new(list_deadline_params)
+    if @new_deadline.save
+      @list_deadline.destroy
       redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
     else
       render :edit
-    end 
+    end
   end
 
   def done

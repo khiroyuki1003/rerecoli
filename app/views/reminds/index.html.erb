@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1>
+      リマインド一覧
+    </h1>
+ 
+    <% if @reminds.present? %>
+      <div class="reminds">
+        <div>
+          <%= link_to "全て確認済にする", all_checked_profile_reminds_path(@user.profile.id), data: { confirm: '全てのリマインドを確認済とします。よろしいですか？' } %> 
+        </div>
+        <%= render partial: "remind", collection: @reminds %>
+      </div>
+    <% else %>
+      <div>
+        リマインドはありません
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -25,17 +25,17 @@
         </div>
       </div>
 
-
+ 
       <div class="remind-index">
         <h3>
           プロセス
         </h3>
         <div>
-          <% if @reminds.present? %>
-            <% @reminds.each do |remind| %>
+          <% if @list_reminds.present? %>
+            <% @list_reminds.each do |list_remind| %>
               <div>
-                <%= link_to remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, remind.list.category.id, remind.list.id, remind.id) %>
-                <%= remind.list_remind_date.strftime('%Y/%m/%d') %>  (<%= remind.list_remind_time.strftime( "%H:%M" ) %>)
+                <%= link_to list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id) %>
+                <%= list_remind.list_remind_date.strftime('%Y/%m/%d') %>  (<%= list_remind.list_remind_time.strftime( "%H:%M" ) %>)
               </div>
             <% end %>
           <% else %>

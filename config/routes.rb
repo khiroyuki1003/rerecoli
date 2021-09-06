@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resources :list_reminds
       end
     end
+    resources :reminds, only: :index
   end
 
   post '/profiles/:profile_id/categories/:category_id/lists/:list_id/list_deadlines/:id/done' => 'list_deadlines#done',   as: 'done_profile_category_list_list_deadline'
@@ -19,4 +20,7 @@ Rails.application.routes.draw do
 
   get '/profiles/:profile_id/date_index/unfinished' => 'date_index#unfinished', as: 'unfinished_profile_date_index'
   get '/profiles/:profile_id/date_index/done' => 'date_index#done', as: 'done_profile_date_index'
+
+  get '/profiles/:profile_id/reminds/:id/checked' => 'reminds#checked', as: 'checked_profile_remind'
+  get '/profiles/:profile_id/reminds/all_checked' => 'reminds#all_checked', as: 'all_checked_profile_reminds'
 end
