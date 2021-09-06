@@ -1,7 +1,3 @@
-<div>
-  <%= link_to "全て確認済にする", all_checked_profile_reminds_path(@user.profile.id), data: { confirm: '全てのリマインドを非表示にします。よろしいですか？' } %> 
-</div>
-
 <% if remind.action == "deadline" %>
   <div class="deadline-remind">
     <div class="action">リスト</div>
@@ -9,7 +5,7 @@
       <%=link_to remind.list_deadline.list.list_title, profile_category_list_path(@user.profile.id, remind.list_deadline.list.category.id, remind.list_deadline.list.id) %>
     </div>
     <div>
-      <%= remind.list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= remind.list_deadline.list_deadline_date.strftime( "%H:%M" ) %>
+      <%= remind.list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= remind.list_deadline.list_deadline_time.strftime( "%H:%M" ) %>
     </div>
     <div>
       <%= link_to "確認", checked_profile_remind_path(@user.profile.id, remind.id) %>
@@ -22,7 +18,7 @@
       <%=link_to remind.list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, remind.list_remind.list.category.id, remind.list_remind.list.id, remind.list_remind.id) %>
     </div>
     <div>
-      <%= remind.list_remind.list_remind_date.strftime('%Y/%m/%d') %>  <%= remind.list_remind.list_remind_date.strftime( "%H:%M" ) %>
+      <%= remind.list_remind.list_remind_date.strftime('%Y/%m/%d') %>  <%= remind.list_remind.list_remind_time.strftime( "%H:%M" ) %>
     </div>
     <div>
       <%= link_to "確認", checked_profile_remind_path(@user.profile.id, remind.id) %>
