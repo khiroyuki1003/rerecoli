@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   get '/profiles/:profile_id/date_index/unfinished' => 'date_index#unfinished', as: 'unfinished_profile_date_index'
   get '/profiles/:profile_id/date_index/done' => 'date_index#done', as: 'done_profile_date_index'
+
+  get '/profiles/:profile_id/reminds/:id/checked' => 'reminds#checked', as: 'checked_profile_remind'
+  get '/profiles/:profile_id/reminds/all_checked' => 'reminds#all_checked', as: 'all_checked_profile_reminds'
 end
