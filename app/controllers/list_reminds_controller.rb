@@ -33,7 +33,7 @@ class ListRemindsController < ApplicationController
     else
       render :edit
     end
-  end
+  end 
 
   def destroy
     @list_remind.destroy
@@ -41,18 +41,18 @@ class ListRemindsController < ApplicationController
   end
 
   def done
-    if @list_remind.status == "unfinished"
+    if @list_remind.status == "unfinished" 
       @list_remind.update(status: "done")
       @user = User.find(current_user.id)
       @category = Category.find(params[:category_id])
       @list = List.find(params[:list_id]) 
-      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+      redirect_to done_profile_date_index_path(@user.profile.id)
     else
       @list_remind.update(status: "unfinished")
       @user = User.find(current_user.id)
       @category = Category.find(params[:category_id])
       @list = List.find(params[:list_id]) 
-      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+      redirect_to unfinished_profile_date_index_path(@user.profile.id)
     end
   end
 
