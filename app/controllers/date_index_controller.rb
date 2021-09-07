@@ -8,8 +8,8 @@ class DateIndexController < ApplicationController
   end
 
   def done
-    @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "done").order(:list_deadline_date).order(list_deadline_time: "DESC")
-    @list_reminds = ListRemind.where(profile_id: @user.profile.id, status: "done").order(:list_remind_date).order(list_remind_time: "DESC")
+    @deadlines = ListDeadline.where(profile_id: @user.profile.id, status: "done").order(list_deadline_date: "DESC").order(list_deadline_time: "DESC")
+    @list_reminds = ListRemind.where(profile_id: @user.profile.id, status: "done").order(list_remind_date: "DESC").order(list_remind_time: "DESC")
   end
 
   private
