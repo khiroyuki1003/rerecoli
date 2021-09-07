@@ -18,6 +18,9 @@
                   <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id) %>
                   <%= deadline.list_deadline_date.strftime('%Y/%m/%d') %>  (<%= deadline.list_deadline_time.strftime( "%H:%M" ) %>)
                 </div>
+                <div>
+                  <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, deadline.list.category.id, deadline.list.id, deadline.id), method: :post %>
+                </div>
               <% end %>
           <% else %>
             達成したリストはありません。
@@ -36,6 +39,9 @@
               <div>
                 <%= link_to list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id) %>
                 <%= list_remind.list_remind_date.strftime('%Y/%m/%d') %>  (<%= list_remind.list_remind_time.strftime( "%H:%M" ) %>)
+              </div>
+              <div>
+                <%= link_to '未達成に戻す', done_profile_category_list_list_remind_path( @user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id), method: :post %>
               </div>
             <% end %>
           <% else %>
