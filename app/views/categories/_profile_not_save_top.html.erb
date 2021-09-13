@@ -1,13 +1,23 @@
-<div>
-  こんにちは、<%= @user.email.gsub(/@.+/, "") %> さん
-</div>
-<div>
-  プロフィールを登録してアプリを開始しましょう
-</div>
-<div>
-  <%= link_to "プロフィール登録はこちらから", new_profile_path %>
-</div>
+<body class="new-user-top">
 
-<div>
-  <%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "logout"  %>
-</div>
+  <%= render "new_header" %>
+
+  <div class="new-user-body">
+    <h1>
+      こんにちは、<%= @user.email.gsub(/@.+/, "") %> さん
+    </h1>
+    <div class="body-message">
+      プロフィールを登録してアプリを開始しましょう
+    </div>
+    <div class="user-btn">
+      <%= link_to "プロフィール登録はこちら", new_profile_path, class:"btn-text" %>
+    </div>
+
+    <div class="user-btn">
+      <%= link_to 'ログアウトする', destroy_user_session_path , method: :delete, data: { confirm: 'ログアウトしますか？' }, class:"btn-text"  %>
+    </div>
+  </div>
+
+  <%= render "new_footer" %>
+
+</body>

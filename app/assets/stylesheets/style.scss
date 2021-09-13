@@ -9,7 +9,7 @@ li {
 
 
 /* プロフィール登録前 */
-
+ 
 .new-user-top{
   height: 100vh;
 }
@@ -92,7 +92,7 @@ h1{
 }
 
 .user-btn:hover{
-  box-shadow: 2px 2px 4px gray;
+  box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.681);
 }
 
 .btn-text{
@@ -107,9 +107,7 @@ h1{
   background-color: #ea9400;
   height: 120px;
   width: 100%;
-  
   text-align: center;
-  
 }
 
 
@@ -122,6 +120,112 @@ h1{
   border-bottom: 1px solid #fff9f5 ;
   margin:0 200px;
 }
+
+// ログイン前入力ページ
+
+.new-btn{
+  padding: 5px 20px;
+  background-color:#ea9400;
+  border-radius: 10%;
+  border: 1px solid wheat;
+}
+
+.new-btn:hover{
+  box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.681);
+}
+
+.new-form-btn{
+  margin: 0 600px;
+  padding: 10px 20px;
+  background-color:#ea9400;
+  border-radius: 10%;
+  border: 1px solid wheat;
+}
+
+.new-form-btn:hover{
+  box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.681);
+}
+
+.body-form-area{
+  margin: 20px 400px;
+  padding: 20px;
+  border-radius: 60%;
+  background-color: rgba($color: white, $alpha: 0.3);
+  text-shadow: 1px 1px 0 rgba(0,0,0,.2);
+  letter-spacing: 0.04em;
+}
+
+
+// ログイン画面
+
+.field{
+  margin: 2px 0 5px;
+}
+
+////ログイン画面
+
+// 新規ユーザー登録
+
+.form-text-wrap{
+  margin: 5px 0 0 ;
+}
+
+.new-regist-btn{
+  margin: 5px 0 0;
+  padding: 5px 20px;
+  background-color:#ea9400;
+  border-radius: 10%;
+  border: 1px solid wheat;
+}
+
+// .new-form-btn{
+//   margin: 0 600px;
+//   padding: 10px 20px;
+//   background-color:#ea9400;
+//   border-radius: 10%;
+//   border: 1px solid wheat;
+// }
+
+
+
+.new-regist-btn:hover{
+  box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.681);
+}
+
+//// 新規ユーザー登録
+
+
+// プロフィール登録画面
+
+.input-birth-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom:5px ;
+
+}
+
+.input-birth-wrap select {
+  width: 75px;
+  margin-top: 5px;
+  height: 35px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.input-name{
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-top: 3px;
+}
+
+//// プロフィール登録画面
+
+// // ログイン前入力ページ
 
 
 
