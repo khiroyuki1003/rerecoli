@@ -1,41 +1,43 @@
-<div>
-  <%= link_to @user.profile.nickname, profile_path(@user.profile.id) %>さん
+<div class="side-btn">
+  <%= link_to @user.profile.nickname, profile_path(@user.profile.id), class:"user-name" %>
 </div>
 
-<div>
-  <%= link_to 'ログアウト', destroy_user_session_path , method: :delete, data: { confirm: 'ログアウトしますか？' }  %>
-</div>
+<div class="side-btn">
+  <%= link_to 'ログアウト', destroy_user_session_path , method: :delete, data: { confirm: 'ログアウトしますか？' }, class:"side-link"  %>
+</div class="side-btn">
 
-<div>
-  <%= link_to "ホームへ戻る", root_path %>
+<div class="side-btn to-home">
+  <%= link_to "ホームへ戻る", root_path, class:"side-link" %>
 </div>
 
  
-<div>
-  <%= link_to "カテゴリー新規作成", new_profile_category_path(@user.profile.id) %>
+<div class="side-btn">
+  <%= link_to "カテゴリー新規作成", new_profile_category_path(@user.profile.id), class:"side-link" %>
 </div> 
 <%# ユーザーがカテゴリを持っている場合にリンクを表示する %>
-<div>
-  <% if @user.profile.categories.present? %>
-    <%= link_to "リスト新規作成", new_profile_category_list_path(@user.profile.id, @user.profile.categories.first.id) %>
-  <% end %>
-</div> 
+
+<% if @user.profile.categories.present? %>
+  <div class="side-btn">
+    <%= link_to "リスト新規作成", new_profile_category_list_path(@user.profile.id, @user.profile.categories.first.id), class:"side-link" %>
+  </div> 
+<% end %>
+
 <%# ユーザーがカテゴリとリストを持っている場合のみカレンダーを表示したい %>
 <div>
   <% if @user.profile.categories.present? %>
     <% @user.profile.categories.each do |category| %>
       <% if category.lists.present? %>
-        <div>
-          <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(category.profile.id, category.id, category.lists.first.id)  %>
+        <div class="side-btn">
+          <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(category.profile.id, category.id, category.lists.first.id), class:"side-link"  %>
         </div>
-        <div>
-          <%= link_to "未達成一覧",  unfinished_profile_date_index_path(@user.profile.id)  %>
+        <div class="side-btn">
+          <%= link_to "未達成一覧",  unfinished_profile_date_index_path(@user.profile.id), class:"side-link"  %>
         </div>
-        <div>
-          <%= link_to "達成一覧",  done_profile_date_index_path(@user.profile.id)  %>  
+        <div class="side-btn">
+          <%= link_to "達成一覧",  done_profile_date_index_path(@user.profile.id), class:"side-link"  %>  
         </div>
-        <div>
-          <%= link_to "リマインド一覧",   profile_reminds_path(@user.profile.id)  %>  
+        <div class="side-btn">
+          <%= link_to "リマインド一覧",   profile_reminds_path(@user.profile.id), class:"side-link"  %>  
           <% if unchecked_reminds.any? %>
             <i class="fa fa-circle notification-circle" style="color: gold;" ></i>
           <% end %>

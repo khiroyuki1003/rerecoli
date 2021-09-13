@@ -7,9 +7,9 @@
       <%= form_with model: @category, url: profile_categories_path(current_user.profile.id), local: true do |f| %>
         <div class='form-wrap'>
           <div class='form-header'>
-            <h1 class='form-header-text'>
+            <h2 class='form-header-text'>
               カテゴリ作成
-            </h1>
+            </h2>
           </div>
 
           <%= render 'shared/error_messages', model: @category %>
@@ -18,7 +18,7 @@
             <div class='form-text-wrap'>
               <label class="form-text">カテゴリ名※必須</label>
             </div>
-            <%= f.text_area  :category_name, class:"input-default", id:"category_name", placeholder:"行きたい場所/体験したい事/見たい物/学びたい事/出来るようになりたい事/仕事/働き方/お金/人間関係…などなど自由に決めてみましょう。", maxlength:"20", autofocus: true %>
+            <%= f.text_area  :category_name, class:"input-default", id:"category_name", placeholder:"行きたい場所 / 体験したい事 / 見たい物 / 学びたい事 / 出来るようになりたい事 / 仕事 / 働き方 / お金 / 人間関係 …などなど自由に決めてみましょう。", maxlength:"20", autofocus: true, style:"width:500px;", rows: "2" %>
           </div>
 
           <div class='register-btn'>

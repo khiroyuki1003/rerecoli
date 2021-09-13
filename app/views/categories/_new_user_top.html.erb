@@ -1,29 +1,40 @@
-<header class="new-user-header">
-  <div class="header-logo">
-     <%= link_to 'RecoLi', root_path %>
-  </div>
-  <div>
-    <%= link_to  '新規登録',  new_user_registration_path %>
-  </div>
-  <div>
-    <%= link_to 'ログイン',  new_user_session_path %>
-  </div>
-</header>
+<body class="new-user-top">
+  <header class="new-user-header">
+    <div>
+    </div>
+    <div class="header-logo">
+      <div class="recoli-box">
+        <div class="big-recoli">Record of One's Life</div>
+        <div class="recoli">RecoLi</div>
+      </div>  
+      
+    </div>
+    <%# <div>
+      <%= link_to  '新規登録',  new_user_registration_path %>
+      <%# <%= link_to 'ログイン',  new_user_session_path %>
+    <%# </div> %> 
+  </header>
 
-<body class="new-user-body">
-＜葉っぱの画像を背景にする？＞
-  <h1>死ぬまでにやりたい事を記録しよう</h1>
-  <p>このアプリは、あなたの人生がより豊かになる手助けをします</p>
-  <div>新規登録</div>
-  <div>または</div>
-  <div>ログイン</div>
-＜/葉っぱの画像を背景にする？＞
+  <div class="new-user-body">
+    <%# <div class="body-contents"> %>
+      <h1>死ぬまでにやりたいことはありますか？</h1>
+      <div class="body-message">
+        <div>1つでもやりたい事が浮かんだなら</div>
+        <div>RecoLiはあなたをサポートします</div>
+        <div class="to-do-message">やりたい事を記録して</div>
+        <div>達成までの道筋を作りましょう</div>
+      </div>
+      <div class="user-btn"><%= link_to  '新規登録',  new_user_registration_path, class:"btn-text" %></div>
+      <div class="mataha">または</div>
+      <div class="user-btn"><%= link_to 'ログイン',  new_user_session_path, class:"btn-text" %></div>
 
-  <h2>「いつか行ってみたい場所がある」「いつかやってみたい体験がある」「○○歳までに叶えたい夢がある」</h2>
-  <div>＜アプリのキャプチャ画像＞</div>
-  <p>RecoLiなら、あなたのそんな思いが実現するように、サポートできます。</p>
+      <%# <h2 class="record">人生を記録しよう</h2> %>
+    <%# </div> %>
+  </div>
+
+  <footer class="new-user-footer">
+    <div class="footer-message">
+      Regret doing something more than not doing it.
+    </div>
+  </footer> 
 </body>
-
-<footer class="new-user-footer">
-  RecoLi
-</footer> 

@@ -3,51 +3,55 @@
     <%= render "categories/side_bar" %>
   </div>
   <div class="main-contents">
-    <h1 class="index-title">
+    <h2 class="index-title">
       達成一覧
-    </h1>
+    </h2>
     <div class="date-index">
       <div class="list-index" >
         <h3>
-          やりたい事
+          やりたい事 
         </h3>
-        <div>
-           <% if @deadlines.present? %>
-            <% @deadlines.each do |deadline| %>
-                <div>
-                  <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id) %>
-                  <%= deadline.list_deadline_date.strftime('%Y/%m/%d') %>  (<%= deadline.list_deadline_time.strftime( "%H:%M" ) %>)
-                </div>
-                <div>
-                  <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, deadline.list.category.id, deadline.list.id, deadline.id), method: :post %>
-                </div>
-              <% end %>
-          <% else %>
-            達成したリストはありません。
+        <% if @deadlines.present? %>
+          <% @deadlines.each do |deadline| %>
+            <div class="deadline-list">
+              <div class="achieve-title">
+                <i class="fas fa-laugh-beam"></i>
+                <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id), class:"deadline-btn" %>
+              </div>
+              <div class="list-info">
+                <%= deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= deadline.list_deadline_time.strftime( "%H:%M" ) %>
+                <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, deadline.list.category.id, deadline.list.id, deadline.id), method: :post, class:"deadline-btn achieve" %>
+              </div>
+            </div>
           <% end %>
-        </div>
+        <% else %>
+          達成したリストはありません。
+        <% end %>
       </div>
 
  
-      <div class="remind-index">
+      <div class="process-index">
         <h3>
           プロセス
         </h3>
-        <div>
-          <% if @list_reminds.present? %>
-            <% @list_reminds.each do |list_remind| %>
-              <div>
-                <%= link_to list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id) %>
-                <%= list_remind.list_remind_date.strftime('%Y/%m/%d') %>  (<%= list_remind.list_remind_time.strftime( "%H:%M" ) %>)
+        <% if @list_reminds.present? %>
+          <% @list_reminds.each do |list_remind| %>
+            <div class="process-list">
+              <div class="achieve-title">
+                <i class="fas fa-laugh-beam"></i>
+                <%= link_to list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id), class:"deadline-btn" %>
               </div>
-              <div>
-                <%= link_to '未達成に戻す', done_profile_category_list_list_remind_path( @user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id), method: :post %>
+              <div class="list-info">
+                <div class="list-date">
+                  <%= list_remind.list_remind_date.strftime('%Y/%m/%d') %>  <%= list_remind.list_remind_time.strftime( "%H:%M" ) %>
+                </div>
+                <%= link_to '未達成に戻す', done_profile_category_list_list_remind_path( @user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id), method: :post, class:"deadline-btn achieve" %>
               </div>
-            <% end %>
-          <% else %>
-            達成したプロセスはまだありません。  
+            </div>
           <% end %>
-        </div>
+        <% else %>
+          達成したプロセスはまだありません。  
+        <% end %>
       </div> 
     </div> 
   </div>

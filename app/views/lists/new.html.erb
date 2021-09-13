@@ -7,9 +7,9 @@
       <%= form_with model: @list, url: profile_category_lists_path(@user.profile.id, @category.id), local: true do |f| %>
         <div class='form-wrap'>
           <div class='form-header'>
-            <h1 class='form-header-text'>
+            <h2 class='form-header-text'>
               リスト作成
-            </h1>
+            </h2>
           </div>
 
           <%= render 'shared/error_messages', model: @list %>
@@ -43,9 +43,9 @@
 
           <%# list_list_deadlineテーブルに保存する情報 %>
           <div class='form-header'>
-            <h1 class='form-header-text'>
+            <h2 class='form-header-text'>
               達成目標日を設定
-            </h1>
+            </h2>
           </div>
 
           <div class="form-group">

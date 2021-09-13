@@ -8,11 +8,10 @@
     <ul class='category-lists'>
       <% if @categories.present? %>
         <% @categories.each do |category| %>
-          <li class='list'>
+          <li class='category-info'>
             
-            <div class='category-info'>
               <%# カテゴリ名表示 %>
-              <h3 class='category-name'>
+              <h3 class='category-name main-btn'>
                 <%= link_to category.category_name,  profile_category_path(@user.profile.id, category.id) %>
               </h3>
               <%# /カテゴリ名表示 %>
@@ -23,22 +22,19 @@
                     <% lists = category.lists.first(3)%> 
                     <% lists.each do |list| %>
                        <li class='list'>
-                         <div class='list-info'> 
-                           <h3 class='list-title'> 
-                            <%= link_to list.list_title, profile_category_list_path(@user.profile.id, category.id, list.id) %>
-                          </h3>
-                        </div>        
+                        <h4 class='list-title main-btn'> 
+                          <%= link_to list.list_title, profile_category_list_path(@user.profile.id, category.id, list.id) %>
+                        </h4>      
                       </li>
                     <% end %> 
-                    <%# カテゴリ内リストの総数表示 %>
-                    <div>
-                      カテゴリ内のリスト数：<%= category.lists.length %>
-                    </div>
                   <% end %>
+                  <%# カテゴリ内リストの総数表示 %>
+                  <div class="list-num">
+                      カテゴリ内のリスト数：<%= category.lists.length %>
+                  </div>
                 </ul>
               </div>
               <%# リストを上から３つまで取得して表示 %>
-            </div>        
           </li>
         <% end %>
       <% end %>
