@@ -1,34 +1,48 @@
-<div class="header-logo">
-  <%= link_to 'RecoLi', root_path %>
-</div>
+<body class="new-user-top">
 
+  <%= render "categories/new_header" %>
 
-<h2>Log in</h2>
+  <div class="new-user-body">
+    
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <h1>ログイン</h1>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="body-message">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class:"input-name", autofocus: true, autocomplete: "email" %>
+        </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, class:"input-name", autocomplete: "current-password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class:"new-btn btn-text" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="user-btn">
+      <%= link_to  '新規登録はこちらから',  new_user_registration_path, class:"btn-text" %>
+    </div>
+
+    <div class="user-btn">
+      <i class="fas fa-arrow-circle-left"></i>
+      <%= link_to '戻る', root_path, class:"btn-text" %>
+    </div>
   </div>
-<% end %>
 
-<div>
-  <%= link_to  '新規登録はこちらから',  new_user_registration_path %>
-</div>
+  <%= render "categories/new_footer" %>
+
+</body>
 

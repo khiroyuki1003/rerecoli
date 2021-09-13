@@ -1,22 +1,8 @@
 <body class="new-user-top">
-  <header class="new-user-header">
-    <div>
-    </div>
-    <div class="header-logo">
-      <div class="recoli-box">
-        <div class="big-recoli">Record of One's Life</div>
-        <div class="recoli">RecoLi</div>
-      </div>  
-      
-    </div>
-    <%# <div>
-      <%= link_to  '新規登録',  new_user_registration_path %>
-      <%# <%= link_to 'ログイン',  new_user_session_path %>
-    <%# </div> %> 
-  </header>
 
+  <%= render "new_header" %>
+  
   <div class="new-user-body">
-    <%# <div class="body-contents"> %>
       <h1>死ぬまでにやりたいことはありますか？</h1>
       <div class="body-message">
         <div>1つでもやりたい事が浮かんだなら</div>
@@ -27,14 +13,8 @@
       <div class="user-btn"><%= link_to  '新規登録',  new_user_registration_path, class:"btn-text" %></div>
       <div class="mataha">または</div>
       <div class="user-btn"><%= link_to 'ログイン',  new_user_session_path, class:"btn-text" %></div>
-
-      <%# <h2 class="record">人生を記録しよう</h2> %>
-    <%# </div> %>
   </div>
 
-  <footer class="new-user-footer">
-    <div class="footer-message">
-      Regret doing something more than not doing it.
-    </div>
-  </footer> 
+  <%= render "new_footer" %>
+
 </body>
