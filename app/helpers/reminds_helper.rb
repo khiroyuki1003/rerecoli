@@ -3,3 +3,4 @@ module RemindsHelper
     @reminds = Remind.where(profile_id: @user.profile.id, checked: "false")
   end
 end
+  

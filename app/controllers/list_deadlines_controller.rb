@@ -30,13 +30,13 @@ class ListDeadlinesController < ApplicationController
       @user = User.find(current_user.id)
       @category = Category.find(params[:category_id])
       @list = List.find(params[:list_id]) 
-      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+      redirect_to done_profile_date_index_path(@user.profile.id)
     else
       @list_deadline.update(status: "unfinished")
       @user = User.find(current_user.id)
       @category = Category.find(params[:category_id])
       @list = List.find(params[:list_id]) 
-      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+      redirect_to unfinished_profile_date_index_path(@user.profile.id)
     end
   end
 

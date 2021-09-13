@@ -1,27 +1,35 @@
 <% if remind.action == "deadline" %>
   <div class="deadline-remind">
-    <div class="action">リスト</div>
-    <div class="remind-title">
-      <%=link_to remind.list_deadline.list.list_title, profile_category_list_path(@user.profile.id, remind.list_deadline.list.category.id, remind.list_deadline.list.id) %>
-    </div>
-    <div>
-      <%= remind.list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= remind.list_deadline.list_deadline_time.strftime( "%H:%M" ) %>
-    </div>
-    <div>
-      <%= link_to "確認", checked_profile_remind_path(@user.profile.id, remind.id) %>
-    </div>
-  </div>     
+    <div class="remind-block">
+      <div class="remind-title">
+        <span class="action deadline-action">リスト</span>
+        <%=link_to remind.list_deadline.list.list_title, profile_category_list_path(@user.profile.id, remind.list_deadline.list.category.id, remind.list_deadline.list.id) %>
+      </div>
+      <div class="remind-info">
+        <div class="remind-list-date">
+          <%= remind.list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= remind.list_deadline.list_deadline_time.strftime( "%H:%M" ) %>
+        </div>
+        <div class="check">
+          <%= link_to "確認した", checked_profile_remind_path(@user.profile.id, remind.id), class:"check-btn" %>
+        </div>
+      </div>
+    </div>  
+  </div>    
 <% else %>
-  <div class="remind-remind">
-    <div class="action">プロセス</div>
-    <div class="remind-title">
-      <%=link_to remind.list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, remind.list_remind.list.category.id, remind.list_remind.list.id, remind.list_remind.id) %>
-    </div>
-    <div>
-      <%= remind.list_remind.list_remind_date.strftime('%Y/%m/%d') %>  <%= remind.list_remind.list_remind_time.strftime( "%H:%M" ) %>
-    </div>
-    <div>
-      <%= link_to "確認", checked_profile_remind_path(@user.profile.id, remind.id) %>
+  <div class="process-remind">
+    <div class="remind-block">
+      <div class="remind-title">
+        <span class="action process-action">プロセス</span>
+        <%=link_to remind.list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, remind.list_remind.list.category.id, remind.list_remind.list.id, remind.list_remind.id) %>
+      </div>
+      <div class="remind-info">
+        <div class="remind-list-date">
+          <%= remind.list_remind.list_remind_date.strftime('%Y/%m/%d') %>  <%= remind.list_remind.list_remind_time.strftime( "%H:%M" ) %>
+        </div>
+        <div class="check">
+          <%= link_to "確認した", checked_profile_remind_path(@user.profile.id, remind.id), class:"check-btn" %> 
+        </div>
+      </div> 
     </div>
   </div> 
-<% end %>
+<% end %>  
