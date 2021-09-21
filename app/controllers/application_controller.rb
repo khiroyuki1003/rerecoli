@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
+  before_action :basic_auth
   before_action :set_remind
 
   private
+  # BASIC_AUTH_USER_RECOLI
+  # export BASIC_AUTH_PASSWORD_RECOLI='1016'
+  def basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV["BASIC_AUTH_USER_RECOLI"] && password == ENV["BASIC_AUTH_PASSWORD_RECOLI"]
+    end
+  end
 
   def set_remind
     if user_signed_in?
