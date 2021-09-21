@@ -15,15 +15,15 @@
         <% if @deadlines.present? %>
           <% @deadlines.each do |deadline| %>
             <div class="deadline-list">
-                <div class="achieve-title">
-                  <i class="fas fa-running"></i>
-                  <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id), class:"deadline-btn" %>
-                </div>
-                <div class="list-info">
-                  <%= deadline.list_deadline_date.strftime('%Y/%m/%d') %>   <%= deadline.list_deadline_time.strftime( "%H:%M" ) %> 
-                  <%= link_to '達成！', done_profile_category_list_list_deadline_path( @user.profile.id, deadline.list.category.id, deadline.list.id, deadline.id), method: :post, class:"deadline-btn achieve" %>
-                </div>
+              <div class="achieve-title">
+                <i class="fas fa-running"></i>
+                <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id), class:"deadline-btn" %>
               </div>
+              <div class="list-info">
+                <%= deadline.list_deadline_date.strftime('%Y/%m/%d') %>   <%= deadline.list_deadline_time.strftime( "%H:%M" ) %> 
+                <%= link_to '達成！', done_profile_category_list_list_deadline_path( @user.profile.id, deadline.list.category.id, deadline.list.id, deadline.id), method: :post, class:"deadline-btn achieve" %>
+              </div>
+            </div>
           <% end %>
         <% else %>
           未達成のリストはありません。

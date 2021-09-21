@@ -178,14 +178,6 @@ h1{
   border: 1px solid wheat;
 }
 
-// .new-form-btn{
-//   margin: 0 600px;
-//   padding: 10px 20px;
-//   background-color:#ea9400;
-//   border-radius: 10%;
-//   border: 1px solid wheat;
-// }
-
 
 
 .new-regist-btn:hover{
@@ -257,6 +249,7 @@ h1{
 
 .side-btn:hover{
   background-color: #ffdd0085;
+  border-radius: 10px;
 }
 
 .user-name{
@@ -284,6 +277,7 @@ h1{
 
 .main-btn:hover{
   background-color: #ffdd0085;
+  border-radius: 10px;
 }
 
 h2{
@@ -333,10 +327,7 @@ h3{
 .list-title{
   width:250px;
   height: 25px;
-  border-radius: 60%;
   padding:0 6px ;
-  border-bottom: 1px solid black;
-  border-radius: 10%;
 }
 
 .list-num{
@@ -378,7 +369,7 @@ h3{
 .deadline-list{
   background-color: #e5a323;
   color: #fff9f5;
-  border-radius: 3%;
+  border-radius: 30px;
   margin: 10px 20px;
   padding: 5px 15px;
 }
@@ -390,7 +381,7 @@ h3{
 .process-list{
   background-color: #fcc800;
   color: #fff9f5;
-  border-radius: 3%;
+  border-radius: 30px;
   margin: 10px 20px;
   padding: 5px 10px;
 }
@@ -402,9 +393,11 @@ h3{
   padding: 2px 10px;
 }
 
-.list-title:hover{
+.achieve-title:hover{
   background-color: #ffdd0085;
+  border-radius: 10px;
 }
+
 
 .list-info{
   text-align: right;
@@ -421,7 +414,7 @@ h3{
 .achieve:hover{
   background-color:#bc611e;
   border-radius: 10px; 
-  padding: 5px 5px 5px 10px; 
+  padding: 0 4px 0 4px; 
 }
 
 /* //リスト・プロセス一覧 */
@@ -431,14 +424,14 @@ h3{
   width: 500px;
   margin: 20px 30px;
   border: 2px solid #e5a323;
-  border-radius: 5%;
+  border-radius: 30px;
 }
 
 .process-remind{
   width: 500px;
   margin: 20px 30px;
   border: 2px solid #fcc800;
-  border-radius: 5%;
+  border-radius: 30px;
 }
 
 .all-check{
@@ -472,6 +465,7 @@ h3{
 
 .remind-title:hover{
   background-color: #ffdd0085;
+  border-radius: 10px;
 }
 
 .action{
@@ -533,6 +527,7 @@ h3{
 }
 
 ////リスト詳細
+
 // カテゴリ新規
 
 .category-name{
@@ -540,6 +535,131 @@ h3{
 }
 
 ////カテゴリ新規
+
+// カテゴリshow
+
+.category-title-box{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  border-radius: 10%;
+  margin-top: 30px;
+}
+
+.category-show-title{
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 0 10px;
+}
+
+.category-title-box-btn{
+  display: flex;
+  margin-right: 100px;
+}
+
+.category-show-contents-box{
+  padding-top: 30px;
+}
+
+.a-list-new{
+  margin-left: 60px;
+}
+
+
+.list-box{
+  border: 1px solid #e5a323;
+  border-radius: 30px;
+  background-color: #fffaf0;
+  width: 500px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.list-box-a{
+  border: 1px solid #e5a323;
+  border-radius: 30px;
+  background-color: #fffaf0;
+  width: 500px;
+  margin-bottom: 5px;
+  text-align: left;
+
+  position: relative;
+  
+}
+
+.a-list-title{
+  border-bottom: 1px solid black;
+  border-radius: 10%;
+  margin: 10px;
+  padding-left:10px;
+  z-index: 100;
+}
+
+
+.a-list-title:hover{
+  background-color: #ffdd0085;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+
+.a-list-info{
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.a-list-deadline{
+  margin-left: 30px;
+  z-index: 100;
+}
+
+
+.a-list-achieve-box{
+  background-color: rgba($color: #e5a323, $alpha: 1.0);
+  padding: 0 5px;
+  border-radius: 3px;
+  z-index: 100;
+}
+
+.a-list-achieve-btn{
+  color: #fffaf0;
+}
+
+.bb-btn{
+  display: flex;
+  margin: 5px 30px;
+  z-index: 100;
+}
+
+.bb-achieve{
+  width: 110px;
+  z-index: 100;
+}
+
+
+.a-list-contents{
+  z-index: 100;
+}
+
+
+.congratulations{
+  font-size: 40px;
+  letter-spacing: 0.02em;
+  transform: rotate(-7deg);
+  color:rgba($color: #e5a323, $alpha: 0.4);
+  position: absolute;
+  top:10px;
+  left: 80px;
+  z-index: 1;
+}
+
+
+
+
+
+
+// //カテゴリshow
 
 
 // プロフィール show
@@ -569,7 +689,7 @@ h3{
   border-radius: 2px;
 }
 
-.profile-btn{
+.element-btn{
   margin-right: 7px;
   padding: 5px 10px;
   color: #fff9f5;
@@ -578,14 +698,20 @@ h3{
   display: inline-block;
 }
 
-.profile-btn:hover{
+.element-btn:hover{
   border: 1px solid #bc611e;
 }
 
-.profile-btn-text{
+.element-btn-text{
   color: #fff9f5;
 }
+
+
+
 // //プロフィールshow
+
+
+
 
 /* //メイン側 */
 
