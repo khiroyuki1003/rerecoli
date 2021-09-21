@@ -23,13 +23,6 @@
       </div>
 
       <div class="category-show-contents-box">
-        <%# <div class="element-btn">
-          <i class="fas fa-arrow-circle-left"></i>
-          <%= link_to "戻る", root_path, class:"element-btn-text" %> 
-        <%# </div> %>
-        <%# <div> %>
-          <%# カテゴリ内のリスト数：<%= @category.lists.length %> 
-        <%# </div> %>
         <div class="element-btn a-list-new">
           <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id), class:"element-btn-text" %>
         </div>
