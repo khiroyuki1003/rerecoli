@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   private
   # BASIC_AUTH_USER_RECOLI
+  heroku config:set BASIC_AUTH_USER_RECOLI="recoli"
+  heroku config:set BASIC_AUTH_PASSWORD_RECOLI="1016"
   # export BASIC_AUTH_PASSWORD_RECOLI='1016'
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
