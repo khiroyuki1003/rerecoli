@@ -43,7 +43,7 @@ li {
   white-space: nowrap;
   opacity: 0.3;
   z-index: 1;
-  color:#fac559;
+  color:#fac559; 
 }
 
 .new-user-body{
@@ -541,6 +541,51 @@ h3{
 
 ////カテゴリ新規
 
+
+// プロフィール show
+.profile-show{
+  margin: 30px;
+}
+
+.profile-box{
+}
+
+.profile-title{
+  border-bottom: 1px solid black;
+  width: 250px;
+  margin-bottom: 10px;
+  padding: 2px 5px;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.profile-content{
+  margin-bottom: 30px;
+  background-color: #fffaf0;
+  border: 1px solid #ea9400;
+  display:inline-block;
+  min-width: 350px;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.profile-btn{
+  margin-right: 7px;
+  padding: 5px 10px;
+  color: #fff9f5;
+  background-color: #e5a323;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.profile-btn:hover{
+  border: 1px solid #bc611e;
+}
+
+.profile-btn-text{
+  color: #fff9f5;
+}
+// //プロフィールshow
 
 /* //メイン側 */
 
