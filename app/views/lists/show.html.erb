@@ -5,8 +5,9 @@
   <div class="main-contents">
     <div class="list-contents">
       <div class="list-category-title">
-          カテゴリ：<%= @list.category.category_name %>
+        <%= @list.category.category_name %>
       </div>
+       
       <h2 class="title">
         <%= @list.list_title %>
       </h2>
@@ -78,7 +79,7 @@
                   </div>
                   <div>
                     <%= link_to "削除", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' } %>
-                  </div>
+                  </div> 
                 </div>        
               </li>
             <% end %>
