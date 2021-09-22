@@ -14,6 +14,10 @@
         <% if @deadlines.present? %>
           <% @deadlines.each do |deadline| %>
             <div class="deadline-list">
+              <div class="min-congratulations">
+                Congratulations!!
+              </div>
+
               <div class="achieve-title">
                 <i class="fas fa-laugh-beam"></i>
                 <%= link_to deadline.list.list_title, profile_category_list_path(@user.profile.id, deadline.list.category.id, deadline.list.id), class:"deadline-btn" %>
@@ -27,7 +31,7 @@
         <% else %>
           達成したリストはありません。
         <% end %>
-      </div>
+      </div> 
 
  
       <div class="process-index">
@@ -37,6 +41,10 @@
         <% if @list_reminds.present? %>
           <% @list_reminds.each do |list_remind| %>
             <div class="process-list">
+              <div class="min-congratulations-b">
+                Congratulations!!
+              </div>
+
               <div class="achieve-title">
                 <i class="fas fa-laugh-beam"></i>
                 <%= link_to list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, list_remind.list.category.id, list_remind.list.id, list_remind.id), class:"deadline-btn" %>

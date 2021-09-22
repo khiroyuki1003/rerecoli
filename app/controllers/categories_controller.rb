@@ -25,10 +25,11 @@ class CategoriesController < ApplicationController
 
   def show
     if @category.lists.present?
-      @lists = List.where(category_id: @category.id)
+      @unfinished_list_deadlines = ListDeadline.includes(:list).where(category_id: @category.id, status: "unfinished").order(list_deadline_date: "ASC").order(list_deadline_time: "ASC")
+      @done_list_deadlines = ListDeadline.includes(:list).where(category_id: @category.id, status: "done").order(list_deadline_date: "ASC").order(list_deadline_time: "ASC")
     end 
   end
-
+ 
   def edit
   end
 

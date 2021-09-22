@@ -4,44 +4,164 @@
   </div>
   <div class="main-contents">
     <div class="category-contents">
-      <h2 class="title">
-        <%= @category.category_name %>
-      </h2>
-      <%# カテゴリ内リストの総数表示 %>
-      <div>
-        カテゴリ内のリスト数：<%= @category.lists.length %>
+      <div class="category-title-box">
+        <div class="category-show-title">
+          <%= @category.category_name %>
+        </div>
+        <div class="category-title-box-btn">
+          <div>
+            <div class="element-btn">
+              <%= link_to "カテゴリ名変更",  edit_profile_category_path(@user.profile.id, @category.id), class:"element-btn-text" %>
+            </div>
+          </div>
+          <div>
+            <div class="element-btn">
+              <%= link_to "削除",  profile_category_path(@user.profile.id, @category.id), method: :delete, data: { confirm: '削除を実行すると、カテゴリ内で作成したリストやプロセス、リマインドなどが全て削除されます。削除してよろしいですか？' },  class:"element-btn-text" %>
+            </div>
+          </div>
+        </div>
       </div>
-      <%# /カテゴリ内リストの総数表示 %>
-      <div>
-        <%= link_to "カテゴリ名を変更する",  edit_profile_category_path(@user.profile.id, @category.id) %>
-      </div>
-      <div>
-        <%= link_to "カテゴリを削除する",  profile_category_path(@user.profile.id, @category.id), method: :delete, data: { confirm: '削除を実行すると、カテゴリ内で作成したリストやプロセス、リマインドなどが全て削除されます。削除してよろしいですか？' } %>
-      </div>
-      <div>
-        <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id) %>
-      </div>
-    </div>
-    <div class="list-contents">
-      <ul class='list-lists'>
-        <% if @lists.present? %>
-          <% @lists.each do |list| %>
-            <li class='list'>
-              <div class='list-info'>
-                <h3 class='list-title'>
-                  <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %>
-                </h3>
-              </div>        
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
 
-    <div>
-      <%= link_to "戻る", root_path %>
+      <div class="category-show-contents-box">
+        <div class="element-btn a-list-new">
+          <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id), class:"element-btn-text" %>
+        </div>
+
+
+
+          <ul class='lists-lists'>
+
+            <%# 未達成のリストを時系列で一覧表示 %>
+            <% if @unfinished_list_deadlines.present? %>
+              <% @unfinished_list_deadlines.each do |list_deadline| %>
+                <li class='list-info'>
+                  <div class="list-box-a">
+                    <div class="a-list-contents">
+                      <div class='a-list-title'>
+                        <i class="fas fa-running" style="color: #e5a323;"></i>
+                        <%= link_to list_deadline.list.list_title, profile_category_list_path( @user.profile.id, @category.id, list_deadline.list.id) %>
+                      </div>
+                      <div class="a-list-info">
+                        <div class="a-list-deadline">
+                          <%= list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= list_deadline.list_deadline_time.strftime( "%H:%M" ) %>
+                        </div>
+                        <div class="bb-btn">
+                          <div class="a-list-achieve-box achieve bb-achieve">
+                            <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, list_deadline.list.id, list_deadline.id), method: :post, class:"a-list-achieve-btn" %>
+                          </div>
+                          <div class="a-list-achieve-box achieve">
+                            <%= link_to "削除",  profile_category_list_path(@user.profile.id, list_deadline.list.category.id, list_deadline.list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' },  class:"a-list-achieve-btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </li>
+              <% end %>
+            <% end %>
+            <%# //未達成のリストを時系列で一覧表示 %>
+
+            <%# 達成済のリストを時系列で一覧表示 %>
+            <% if @done_list_deadlines.present? %>
+              <% @done_list_deadlines.each do |list_deadline| %>
+                <li class='list-info'>
+                  <div class="list-box-a">
+                    <div class="congratulations">
+                      Congratulations!!
+                    </div>
+                    <div class="a-list-contents">
+                      <div class='a-list-title'>
+                        <i class="fas fa-laugh-beam" style="color: #e5a323;"></i>
+                        <%= link_to list_deadline.list.list_title, profile_category_list_path( @user.profile.id, @category.id, list_deadline.list.id) %>
+                      </div>
+                      <div class="a-list-info">
+                        <div class="a-list-deadline">
+                          <%= list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= list_deadline.list_deadline_time.strftime( "%H:%M" ) %>
+                        </div>
+                        <div class="bb-btn">
+                          <div class="a-list-achieve-box achieve bb-achieve">
+                            <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, list_deadline.list.id, list_deadline.id), method: :post, class:"a-list-achieve-btn" %>
+                          </div>
+                          <div class="a-list-achieve-box achieve">
+                            <%= link_to "削除",  profile_category_list_path(@user.profile.id, list_deadline.list.category.id, list_deadline.list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' },  class:"a-list-achieve-btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+            <%# //達成済のリストを時系列で一覧表示 %>
+
+
+
+
+            <% if @lists.present? %>
+              <% @lists.each do |list| %>
+                <li class='list-info'>
+                
+                  <% if list.list_deadline.status == "done" %>
+                    <div class="list-box-a">
+                      <div class="congratulations">
+                        Congratulations!!
+                      </div>
+                      <div class="a-list-contents">
+                        <div class='a-list-title'>
+                          <i class="fas fa-laugh-beam" style="color: #e5a323;"></i>
+                          <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %>
+                        </div>
+                        <div class="a-list-info">
+                          <div class="a-list-deadline">
+                            <%= list.list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>  <%= list.list_deadline.list_deadline_time.strftime( "%H:%M" ) %>
+                          </div>
+                          <div class="bb-btn">
+                            <div class="a-list-achieve-box achieve bb-achieve">
+                              <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, list.id, list.list_deadline.id), method: :post, class:"a-list-achieve-btn" %>
+                            </div>
+                            <div class="a-list-achieve-box achieve">
+                              <%= link_to "削除",  profile_category_list_path(@user.profile.id, list.category.id, list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' },  class:"a-list-achieve-btn" %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% else %> 
+
+
+                    <div class="list-box">
+                      <div class="a-list-title">
+                        <i class="fas fa-running" style="color: #e5a323;"></i>
+                        <%= link_to list.list_title, profile_category_list_path( @user.profile.id, @category.id, list.id) %>
+                      </div>
+                      <div class="a-list-info">
+                        <div class="a-list-deadline">
+                          <%= list.list_deadline.list_deadline_date.strftime('%Y/%m/%d') %>   <%= list.list_deadline.list_deadline_time.strftime( "%H:%M" ) %> 
+                        </div>  
+                        <div class="bb-btn">
+                          <div class="a-list-achieve-box achieve bb-achieve">
+                            <%= link_to '　　達成！', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, list.id, list.list_deadline.id), method: :post, class:"a-list-achieve-btn" %>
+                          </div>
+                          <div class="a-list-achieve-box achieve">
+                            <%= link_to "削除",  profile_category_list_path(@user.profile.id, list.category.id, list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' },  class:"a-list-achieve-btn" %>
+                          </div>
+                        </div>
+                    </div>
+                  <% end %> 
+              
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+  
+      
+      
+
+
+
     </div>
   </div>
 </div>
 
- 
+  
