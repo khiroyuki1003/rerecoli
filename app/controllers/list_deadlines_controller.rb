@@ -66,6 +66,9 @@ class ListDeadlinesController < ApplicationController
   end
 
   def list_deadline_params
-    params.require(:list_deadline).permit(:list_deadline_date, :list_deadline_time).merge(list: @list, profile: @user.profile )
+    params.require(:list_deadline).permit(:list_deadline_date, :list_deadline_time).merge(list: @list, profile: @user.profile, category: @category )
   end
 end
+ 
+
+ 
