@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 2021_09_06_021515) do
     t.time "list_deadline_time", null: false
     t.bigint "list_id", null: false
     t.bigint "profile_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "unfinished"
+    t.index ["category_id"], name: "index_list_deadlines_on_category_id"
     t.index ["list_id"], name: "index_list_deadlines_on_list_id"
     t.index ["profile_id"], name: "index_list_deadlines_on_profile_id"
   end
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_09_06_021515) do
   end
 
   add_foreign_key "categories", "profiles"
+  add_foreign_key "list_deadlines", "categories"
   add_foreign_key "list_deadlines", "lists"
   add_foreign_key "list_deadlines", "profiles"
   add_foreign_key "list_reminds", "lists"

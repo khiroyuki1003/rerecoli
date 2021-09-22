@@ -20,7 +20,8 @@ class  ListListDeadline
     ListDeadline.create(
       list_deadline_date: list_deadline_date,
       list_deadline_time: list_deadline_time,
-      list_id: list.id, profile_id: profile.id
+      list_id: list.id, profile_id: profile.id,
+      category_id: category_id
     )
-  end
-end 
+  end 
+end   

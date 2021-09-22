@@ -1,5 +1,6 @@
 class ListDeadline < ApplicationRecord
   belongs_to :profile
+  belongs_to :category
   belongs_to :list 
   has_many :reminds, dependent: :destroy
 
@@ -8,4 +9,3 @@ class ListDeadline < ApplicationRecord
     validates :list_deadline_time
   end
 end
- 
