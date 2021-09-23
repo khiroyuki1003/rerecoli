@@ -546,20 +546,8 @@ h3{
 
 /* //リマインド一覧 */
 
-// リスト詳細
 
-.list-category-title{
-  font-size: 32px;
-  border-bottom: 1px solid black;
-  border-radius: 10%;
-  text-align: center;
-  font-weight: bold;
-  margin: 20px 300px 30px;
-
-}
-
-////リスト詳細
-
+ 
 // カテゴリ新規
 
 .category-name{
@@ -742,6 +730,233 @@ h3{
 
 // //プロフィールshow
 
+
+// リスト詳細
+
+.list-category-title{
+  font-size: 32px;
+  border-bottom: 1px solid black;
+  border-radius: 10%;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 300px 30px;
+
+}
+
+.list-show-title{
+  position: relative;
+}
+
+
+.list-show-congratulations{
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  background-color:rgba($color: red, $alpha: 0.9);
+  transform: rotate(-5deg);
+  color: rgba($color:white, $alpha: 1.0);
+  border-radius: 5px;
+  padding: 0 10px;
+  z-index: 500;
+}
+
+
+
+.list-show-box{
+  margin: 30px;
+}
+
+
+.achieve-btn-big-box{
+  background-color: rgba($color: #e5a323, $alpha: 1.0);
+  padding: 5px;
+  border-radius: 3px;
+  width: 110px;
+  transition: all 0.2s;
+}
+
+.achieve-btn-big-box:hover{
+  background-color:#bc611e;
+  border-radius: 10px; 
+  padding: 5px; 
+}
+
+.priority-box{
+  padding: 5px 10px;
+  background-color: #fffaf0;
+  border: 1px solid #e5a323;
+  width: 110px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.list-show-content-box{
+  margin: 40px 0  ;
+}
+
+.list-show-content-title{
+  border-bottom: 1px solid black;
+  width: 250px;
+  margin-bottom: 10px;
+  padding: 2px 10px;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.list-detail-box{
+  min-height: 70px;
+}
+
+.achieve-date{
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-box{
+  border-bottom: 1px solid black;
+}
+
+.list-show-content-detail{
+  background-color: #fffaf0;
+  border: 1px solid #ea9400;
+  width: 700px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+
+
+.list-show-btn{
+  margin-right: 7px;
+  padding: 1px 10px;
+  color: #fff9f5;
+  background-color: #e5a323;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.list-show-btn:hover{
+  border: 1px solid #bc611e;
+  padding: 0 10px;
+}
+
+.list-show-btn-text{
+  color: #fff9f5;
+}
+
+
+
+.process-info-box{
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #fcc800;
+  background-color: #fffaf0;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  width: 750px;
+  position: relative;
+}
+
+.proces-congratulations{
+  position: absolute;
+  left: 150px;
+  background-color:rgba($color: red, $alpha: 0.9);
+  transform: rotate(-5deg);
+  color: rgba($color:white, $alpha: 1.0);
+  border-radius: 5px;
+  padding: 0 10px;
+  z-index: 500;
+}
+
+
+
+.process-main-box{
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+  z-index: 100;
+}
+
+
+.process-title{
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  border-radius: 5%;
+  padding: 0 5px;
+  z-index: 100;
+}
+
+.process-title:hover{
+  background-color: #ffdd0085;
+}
+
+.proces-date-box{
+  z-index: 100;
+}
+
+
+
+.process-btn-box{
+  display: flex;
+  z-index: 100;
+}
+
+
+.process-achieve-btn{
+  background-color: rgba($color: #e5a323, $alpha: 1.0);
+  padding: 0 5px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  width: 110px;
+  margin-right: 20px;
+  z-index: 100;
+}
+
+.process-achieve-btn:hover{
+  background-color:#bc611e;
+  border-radius: 10px; 
+  padding: 0 4px 0 4px; 
+  z-index: 100;
+}
+
+.process-achieve-btn-text{
+  color: #fff9f5;
+  z-index: 100;
+}
+
+.process-btn{
+  background-color: rgba($color: #e5a323, $alpha: 1.0);
+  padding: 0 10px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  margin-left: 10px;
+  z-index: 100;
+}
+
+.process-edit-btn{
+  margin-left: 50px;
+  z-index: 100;
+}
+
+.process-btn:hover{
+  border-bottom: 1px solid #bc611e;
+  z-index: 100;
+}
+
+.sukima{
+  margin: 10px;
+}
+
+.process-list-contents{
+  margin-bottom: 50px;
+}
+
+
+
+////リスト詳細
 
 
 

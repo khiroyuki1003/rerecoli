@@ -25,7 +25,7 @@
       <div class="category-show-contents-box">
         <div class="element-btn a-list-new">
           <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id), class:"element-btn-text" %>
-        </div>
+        </div> 
 
 
 
@@ -47,7 +47,7 @@
                         </div>
                         <div class="bb-btn">
                           <div class="a-list-achieve-box achieve bb-achieve">
-                            <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, list_deadline.list.id, list_deadline.id), method: :post, class:"a-list-achieve-btn" %>
+                            <%= link_to '　　達成！', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, list_deadline.list.id, list_deadline.id), method: :post, class:"a-list-achieve-btn" %>
                           </div>
                           <div class="a-list-achieve-box achieve">
                             <%= link_to "削除",  profile_category_list_path(@user.profile.id, list_deadline.list.category.id, list_deadline.list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' },  class:"a-list-achieve-btn" %>

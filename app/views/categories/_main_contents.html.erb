@@ -24,7 +24,7 @@
                        <li class='list'>
                         <h4 class='list-title main-btn'> 
                           <i class="fa fa-circle notification-circle fa-xs" style="color: black;" ></i>
-                          <%= link_to list.list_title, profile_category_list_path(@user.profile.id, category.id, list.id) %>
+                          <%= link_to truncate(list.list_title, :length => 15), profile_category_list_path(@user.profile.id, category.id, list.id) %>
                         </h4>      
                       </li>
                     <% end %> 

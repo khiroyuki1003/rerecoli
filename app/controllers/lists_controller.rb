@@ -20,6 +20,9 @@ class ListsController < ApplicationController
   end
 
   def show
+    if @list.list_reminds.present?
+      @list_reminds = ListRemind.where(list_id: @list.id).order(:list_remind_date).order(list_remind_time: "ASC")
+    end 
   end
 
   def edit
