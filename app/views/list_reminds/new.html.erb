@@ -8,7 +8,7 @@
         <div class='form-wrap'>
           <div class='form-header'>
             <h1 class='form-header-text'>
-              やりたい事：<%= @list.list_title %>
+              <%= @list.list_title %>
             </h1>
           </div>
           <div class='form-header'>
@@ -19,49 +19,53 @@
 
           <%= render 'shared/error_messages', model: @list_remind %>
           
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">プロセスのタイトル※必須</label>
+          <div class="profile-show">
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">プロセスのタイトル※必須</label>
+              </div>
+              <%= f.text_area  :list_remind_title, class:"profile-content", id:"list_remind_title", placeholder:"100文字以下", maxlength:"100", autofocus: true %>
             </div>
-            <%= f.text_area  :list_remind_title, class:"input-default", id:"list_remind_title", placeholder:"100文字以下", maxlength:"100", autofocus: true %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">プロセスの詳細</label>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">プロセスの詳細</label>
+              </div>
+              <%= f.text_area  :list_remind_detail, class:"profile-content", id:"list_remind_detail", placeholder:"詳細の内容を記録できます" %>
             </div>
-            <%= f.text_area  :list_remind_detail, class:"input-default", id:"list_remind_detail", placeholder:"詳細の内容を記録できます" %>
-          </div>
 
-          <div class='form-header'>
-            <h2 class='form-header-text'>
-              プロセスをリマインドする日
-            </h2>
-          </div>
-
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">日にち※必須</label>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">達成目標日※必須</label>
+              </div>
+              <div class='profile-edit-box'>
+                <%= raw sprintf(
+                  f.date_select(
+                  :list_remind_date, use_month_numbers: true, 
+                  use_two_digit_numbers: true,
+                  start_year: Time.now.year,
+                  end_year: ( Time.now.year + 100 ),
+                  selected: Date.today,
+                  date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+              </div>
             </div>
-            <%= raw sprintf(
-              f.date_select(
-              :list_remind_date, use_month_numbers: true, 
-              use_two_digit_numbers: true,
-              start_year: Time.now.year,
-              end_year: ( Time.now.year + 100 ),
-              selected: Date.today,
-              date_separator: '%s'),
-              '年 ', '月 ') + '日' %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">リマインドする時刻※必須</label>
+            <div class="profile-box time-select-group">
+              <div class='profile-title'>
+                <label class="form-text">リマインドする時刻※必須</label>
+              </div>
+              <div class='profile-edit-box'>
+                <%= f.time_select(:list_remind_time, minute_step: 15, selected: Date.today + 10.hour ) %>
+              </div>
             </div>
-            <%= f.time_select(:list_remind_time, minute_step: 15, selected: Date.today + 10.hour ) %>
-          </div>
 
-          <div class='register-btn'>
-            <%= f.submit "プロセス追加" ,class:"register-red-btn" %>
-          </div>
+            <div class='register-btn'>
+              <%= f.submit "プロセス追加" ,class:"form-btn" %> 
+            </div>
+            <div class="list-show-btn list-edit-return ">
+              <i class="fas fa-arrow-circle-left"></i>
+              <%= link_to "戻る", profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
+            </div>
+          </div>  
         </div>
       <% end %>
     </div>

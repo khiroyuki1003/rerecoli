@@ -835,6 +835,7 @@ h3{
   background-color: #e5a323;
   border-radius: 5px;
   display: inline-block;
+  border: none;
 }
 
 .list-show-btn:hover{
@@ -960,6 +961,93 @@ h3{
 
 
 
+// プロフィールedit
+
+.profile-edit-box {
+  display: flex;
+  margin-bottom:5px ;
+}
+
+.profile-edit-box select {
+  width: 75px;
+  margin-top: 5px;
+  height: 35px;
+  padding-left: 10px;
+  border-radius: 2px;
+  border: 1px solid #ea9400;
+  background-color: #fffaf0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+// //プロフィールedit
+
+// リストnew
+
+
+.category-select-box select {
+  width: 150px;
+  margin: 5px 0 30px 0;
+  height: 35px;
+  padding-left: 10px;
+  border-radius: 2px;
+  border: 1px solid #ea9400;
+  background-color: #fffaf0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.priority-select-box select {
+  width: 50px;
+  margin: 5px 0 30px 0;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 2px;
+  border: 1px solid #ea9400;
+  background-color: #fffaf0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.time-select-group{
+  margin-bottom: 30px;
+}
+
+// //リストnew
+
+
+//  リストedit
+
+.list-edit-return{
+  margin-top: 10px;
+}
+
+// // リストedit
+
+// formボタン
+
+.form-btn{
+  margin-right: 7px;
+  padding: 1px 10px;
+  color: #fff9f5;
+  background-color: #e5a323;
+  border-radius: 5px;
+  display: inline-block;
+  border: 2px solid #bc611e;
+  font-size: 16px;
+}
+
+.form-btn:hover{
+  border: 1px solid #bc611e;
+  padding: 0 10px;
+}
+
+// //formボタン
+
+
+
+
+
 /* //メイン側 */
 
-/* //プロフィール登録後 */
+/* //プロフィール登録後 */ 

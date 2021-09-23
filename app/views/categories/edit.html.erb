@@ -7,25 +7,32 @@
       <%= form_with model: @category, url: profile_category_path(@user.profile.id, @category.id),local: true do |f| %>
         <div class='form-wrap'>
           <div class='form-header'>
-            <h1 class='form-header-text'>
+            <h2 class='form-header-text'>
               カテゴリ名変更
-            </h1>
+            </h2>
           </div>
 
           <%= render 'shared/error_messages', model: @category %>
 
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">カテゴリ名※必須</label>
+          <div class="profile-show">
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">カテゴリ名※必須</label>
+              </div>
+              <%= f.text_area  :category_name, class:"profile-content", id:"category_name", placeholder:"", maxlength:"20", autofocus: true %>
             </div>
-            <%= f.text_area  :category_name, class:"input-default", id:"category_name", placeholder:"", maxlength:"20", autofocus: true %>
-          </div>
 
-          <div class='register-btn'>
-            <%= f.submit "カテゴリ名変更" ,class:"register-red-btn" %>
+            <div class='register-btn'>
+              <%= f.submit "カテゴリ名変更" ,class:"form-btn" %>
+            </div>
+
+            <div class="list-show-btn list-edit-return">
+              <i class="fas fa-arrow-circle-left"></i>
+              <%= link_to "戻る", profile_category_path(@user.profile.id, @category.id), class:"list-show-btn-text" %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        </div> 
+      <% end %> 
     </div>
   </div>
 </div>

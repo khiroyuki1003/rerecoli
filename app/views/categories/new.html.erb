@@ -14,23 +14,22 @@
 
           <%= render 'shared/error_messages', model: @category %>
 
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">カテゴリ名※必須</label>
+          <div class="profile-show">
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">カテゴリ名※必須</label>
+              </div>
+              <%= f.text_area  :category_name, class:"profile-content", id:"category_name", placeholder:"行きたい場所 / 体験したい事 / 見たい物 / 学びたい事 / 出来るようになりたい事 / 仕事 / 働き方 / お金 / 人間関係 …などなど自由に決めてみましょう。", maxlength:"20", autofocus: true, style:"width:500px;", rows: "2" %>
             </div>
-            <%= f.text_area  :category_name, class:"input-default", id:"category_name", placeholder:"行きたい場所 / 体験したい事 / 見たい物 / 学びたい事 / 出来るようになりたい事 / 仕事 / 働き方 / お金 / 人間関係 …などなど自由に決めてみましょう。", maxlength:"20", autofocus: true, style:"width:500px;", rows: "2" %>
-          </div>
 
-          <div class='register-btn'>
-            <%= f.submit "カテゴリ作成" ,class:"register-red-btn" %>
-          </div>
+            <div class='register-btn'>
+              <%= f.submit "カテゴリ作成" ,class:"form-btn" %>
+            </div>
+          </div> 
         </div>
       <% end %>
-    </div>
+    </div> 
 
-    <div>
-      <%= link_to "戻る", root_path %>
-    </div>
   </div>
 </div>
 
