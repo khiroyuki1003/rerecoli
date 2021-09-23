@@ -48,7 +48,12 @@
           </div>
 
           <div class='register-btn'>
-            <%= f.submit "プロフィール更新" ,class:"register-red-btn" %>
+            <%= f.submit "プロフィール更新" ,class:"form-btn" %>
+          </div> 
+
+          <div class="list-show-btn list-edit-return ">
+            <i class="fas fa-arrow-circle-left"></i>
+            <%= link_to "戻る", profile_path(@user.profile.id), class:"list-show-btn-text" %>
           </div>
         </div>
       </div>

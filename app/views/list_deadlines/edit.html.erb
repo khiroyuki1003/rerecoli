@@ -4,36 +4,54 @@
   </div>
   <div class="main-contents">
     <div class="contents">
+      <div class='form-header'>
+        <h1 class='form-header-text'>
+          <%= @list.list_title %>
+        </h1>
+      </div>
+
+
       <%= form_with model: @list_deadline, url: profile_category_list_list_deadline_path(@user.profile.id, @category.id, @list.id, @list_deadline.id), local: true do |f| %>
         <div class='form-wrap'>
           <div class='form-header'>
-            <h1 class='form-header-text'>
-              達成目標日編集
-            </h1>
+            <h2 class='form-header-text'> 
+              達成目標日を変更する
+            </h2>
           </div>
 
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">達成目標日※必須</label>
+          <div class="profile-show">
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">達成目標日※必須</label>
+              </div>
+              <div class='profile-edit-box'>
+                <%= raw sprintf(
+                  f.date_select(
+                  :list_deadline_date, use_month_numbers: true, 
+                  use_two_digit_numbers: true,
+                  start_year: Time.now.year,
+                  end_year: ( Time.now.year + 100 ),
+                  date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+              </div>
             </div>
-            <%= raw sprintf(
-              f.date_select(
-              :list_deadline_date, use_month_numbers: true, 
-              use_two_digit_numbers: true,
-              start_year: Time.now.year,
-              end_year: ( Time.now.year + 100 ),
-              date_separator: '%s'),
-              '年 ', '月 ') + '日' %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">リマインドする時刻※必須</label>
+            <div class="profile-box time-select-group">
+              <div class='profile-title'>
+                <label class="form-text">リマインドする時刻※必須</label>
+              </div>
+              <div class='profile-edit-box'>
+                <%= f.time_select(:list_deadline_time, minute_step: 15, default: Date.today + 10.hour ) %>
+              </div>
             </div>
-            <%= f.time_select(:list_deadline_time, minute_step: 15, default: Date.today + 10.hour ) %>
-          </div>
 
-          <div class='register-btn'>
-            <%= f.submit "変更する" ,class:"register-red-btn" %>
+            <div class='register-btn'>
+              <%= f.submit "変更する" ,class:"form-btn" %>
+            </div>
+
+            <div class="list-show-btn list-edit-return ">
+              <i class="fas fa-arrow-circle-left"></i>
+              <%= link_to "戻る", profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
+            </div>
           </div>
         </div>
       <% end %>

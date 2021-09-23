@@ -8,78 +8,80 @@
         <div class='form-wrap'>
           <div class='form-header'>
             <h2 class='form-header-text'>
-              リスト作成
+              リスト新規作成
             </h2>
           </div>
 
           <%= render 'shared/error_messages', model: @list %>
           
-          <%# リストテーブルに保存する情報 %>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">カテゴリ選択</label>
+          <div class="profile-show">
+            <%# リストテーブルに保存する情報 %>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">カテゴリ選択</label> 
+              </div>
+              <div class='category-select-box'>
+                <%= f.collection_select(:category_id, Category.where(profile_id: @user.profile.id), :id, :category_name, {selected: @category.id}, {class:"select-box", id:"category-name"}) %>
+              </div>
             </div>
-            <%= f.collection_select(:category_id, Category.where(profile_id: @user.profile.id), :id, :category_name, {selected: @category.id}, {class:"select-box", id:"category-name"}) %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">やりたい事※必須</label>
+            <div class="profile-boxp">
+              <div class='profile-title'>
+                <label class="form-text">やりたい事※必須</label>
+              </div>
+              <%= f.text_area  :list_title, class:"profile-content", id:"list_title", placeholder:"100文字以下", maxlength:"100", autofocus: true %>
             </div>
-            <%= f.text_area  :list_title, class:"input-default", id:"list_title", placeholder:"100文字以下", maxlength:"100", autofocus: true %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">やりたい事の詳細</label>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">やりたい事の詳細</label>
+              </div>
+              <%= f.text_area  :list_detail, class:"profile-content", id:"list_detail", placeholder:"詳細の内容を記録できます" %>
             </div>
-            <%= f.text_area  :list_detail, class:"input-default", id:"list_detail", placeholder:"詳細の内容を記録できます" %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">優先度（大・中・小から選んでください）※設定は任意です。</label>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">優先度</label>
+              </div>
+              <div class="priority-select-box">
+                <%= f.collection_select(:priority_id, Priority.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
+              </div>
             </div>
-            <%= f.collection_select(:priority_id, Priority.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
-          </div>
-          <%# /リストテーブルに保存する情報 %>
+            <%# /リストテーブルに保存する情報 %>
 
-          <%# list_list_deadlineテーブルに保存する情報 %>
-          <div class='form-header'>
-            <h2 class='form-header-text'>
-              達成目標日を設定
-            </h2>
-          </div>
+            <%# list_list_deadlineテーブルに保存する情報 %>
 
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">達成目標日※必須</label>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">達成目標日※必須</label>
+              </div>
+              <div class='profile-edit-box'>
+                <%= raw sprintf(
+                  f.date_select(
+                  :list_deadline_date, use_month_numbers: true, 
+                  use_two_digit_numbers: true,
+                  start_year: Time.now.year,
+                  end_year: ( Time.now.year + 100 ),
+                  selected: Date.today,
+                  date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                </div>
             </div>
-            <%= raw sprintf(
-              f.date_select(
-              :list_deadline_date, use_month_numbers: true, 
-              use_two_digit_numbers: true,
-              start_year: Time.now.year,
-              end_year: ( Time.now.year + 100 ),
-              selected: Date.today,
-              date_separator: '%s'),
-              '年 ', '月 ') + '日' %>
-          </div>
-          <div class="form-group">
-            <div class='form-text-wrap'>
-              <label class="form-text">リマインドする時刻※必須</label>
+            <div class="profile-box time-select-group">
+              <div class='profile-title'>
+                <label class="form-text">リマインドする時刻※必須</label>
+              </div>
+              <div class='profile-edit-box'>
+                <%= f.time_select(:list_deadline_time, minute_step: 15, selected: Date.today + 10.hour ) %>
+              </div>
             </div>
-            <%= f.time_select(:list_deadline_time, minute_step: 15, selected: Date.today + 10.hour ) %>
-          </div>
-          <%# /list_list_deadlineテーブルに保存する情報 %>
+            <%# /list_list_deadlineテーブルに保存する情報 %>
 
-          <div class='register-btn'>
-            <%= f.submit "リスト作成" ,class:"register-red-btn" %>
+            <div class='register-btn'>
+              <%= f.submit "リスト作成" ,class:"form-btn" %>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
 
-    <div>
-      <%= link_to "戻る", root_path %>
-    </div>
   </div>
 </div>
 
