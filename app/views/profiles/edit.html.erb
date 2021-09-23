@@ -7,48 +7,50 @@
     <%= form_with model: @profile, local: true do |f| %>
       <div class='form-wrap'>
         <div class='form-header'>
-          <h1 class='form-header-text'>
+          <h2 class='form-header-text'>
             プロフィール編集
-          </h1>
+          </h2>
         </div>
 
         <%= render 'shared/error_messages', model: @profile %>
 
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">ニックネーム※必須</label>
-          </div>
-          <%= f.text_area  :nickname, class:"input-default", id:"nickname", placeholder:"Recoli太一", maxlength:"20", autofocus: true %>
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">あなたが大切にしている言葉</label>
-          </div>
-            <%= f.text_area :precious_word, class:"input-name", id:"precious_word", placeholder:"あなたがいつも心掛けている事や、好きな諺、座右の銘などがあれば書いてみてください(100字以内)",  maxlength:"100" %>
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">生年月日※必須</label>
-          </div>
-          <div class='input-birth-wrap'>
-            <%= raw sprintf(
-                        f.date_select(
-                          :birth_date,
-                          class:'select-birth',
-                          id:"birth-date",
-                          use_month_numbers: true,
-                          prompt:'--',
-                          start_year: (Time.now.year),
-                          end_year: 1930,
-                          date_separator: '%s'),
-                        "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-          </div> 
-        </div>
+        <div class="profile-show">
 
-        <div class='register-btn'>
-          <%= f.submit "プロフィール更新" ,class:"register-red-btn" %>
+          <div class="profile-box">
+            <div class='profile-title'>
+              <label class="form-text">ニックネーム※必須</label>
+            </div>
+            <%= f.text_area  :nickname, class:"profile-content", id:"nickname", placeholder:"Recoli太一", maxlength:"20", autofocus: true %>
+          </div>
+          <div class="profile-box">
+            <div class='profile-title'>
+              <label class="form-text">あなたが大切にしている言葉</label>
+            </div>
+              <%= f.text_area :precious_word, class:"profile-content", id:"precious_word", placeholder:"あなたがいつも心掛けている事や、好きな諺、座右の銘などがあれば書いてみてください(100字以内)",  maxlength:"100" %>
+          </div>
+          <div class="profile-box">
+            <div class='profile-title'>
+              <label class="form-text">生年月日※必須</label>
+            </div>
+            <div class='profile-edit-box'>
+              <%= raw sprintf(
+                          f.date_select(
+                            :birth_date,
+                            class:'select-birth',
+                            id:"birth-date",
+                            use_month_numbers: true,
+                            prompt:'--',
+                            start_year: (Time.now.year),
+                            end_year: 1930,
+                            date_separator: '%s'),
+                          "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+            </div> 
+          </div>
+
+          <div class='register-btn'>
+            <%= f.submit "プロフィール更新" ,class:"register-red-btn" %>
+          </div>
         </div>
-        
       </div>
     <% end %>
   </div>
