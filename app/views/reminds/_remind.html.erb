@@ -3,7 +3,7 @@
     <div class="remind-block">
       <div class="remind-title">
         <span class="action deadline-action">リスト</span>
-        <%=link_to remind.list_deadline.list.list_title, profile_category_list_path(@user.profile.id, remind.list_deadline.list.category.id, remind.list_deadline.list.id) %>
+        <%=link_to truncate(remind.list_deadline.list.list_title, :length => 22), profile_category_list_path(@user.profile.id, remind.list_deadline.list.category.id, remind.list_deadline.list.id) %>
       </div>
       <div class="remind-info">
         <div class="remind-list-date">
@@ -17,10 +17,11 @@
   </div>    
 <% else %>
   <div class="process-remind">
-    <div class="remind-block">
+    <div class="remind-block"> 
       <div class="remind-title">
         <span class="action process-action">プロセス</span>
-        <%=link_to remind.list_remind.list_remind_title, profile_category_list_list_remind_path(@user.profile.id, remind.list_remind.list.category.id, remind.list_remind.list.id, remind.list_remind.id) %>
+        
+        <%=link_to truncate(remind.list_remind.list_remind_title, :length => 21), profile_category_list_list_remind_path(@user.profile.id, remind.list_remind.list.category.id, remind.list_remind.list.id, remind.list_remind.id) %>
       </div>
       <div class="remind-info">
         <div class="remind-list-date">

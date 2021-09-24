@@ -12,7 +12,7 @@
             
               <%# カテゴリ名表示 %>
               <h3 class='category-name main-btn'>
-                <%= link_to category.category_name,  profile_category_path(@user.profile.id, category.id) %>
+                <%= link_to truncate(category.category_name, :length => 16),  profile_category_path(@user.profile.id, category.id) %>
               </h3>
               <%# /カテゴリ名表示 %>
               <%# リストを上から３つまで取得して表示 %>
@@ -28,7 +28,7 @@
                         </h4>      
                       </li>
                     <% end %> 
-                  <% end %>
+                  <% end %> 
                   <%# カテゴリ内リストの総数表示 %>
                   <div class="list-num">
                       カテゴリ内のリスト数：<%= category.lists.length %>

@@ -5,7 +5,7 @@
   <div class="main-contents">
     <div class="list-contents">
       <div class="list-category-title">
-        <%= @list.category.category_name %>
+        <%= truncate(@list.category.category_name, :length => 17) %>
       </div>
        
       <h2 class="list-show-title">
