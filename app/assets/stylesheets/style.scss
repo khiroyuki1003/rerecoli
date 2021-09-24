@@ -315,6 +315,7 @@ h2{
   width: 350px;
   height: 250px;
   margin-bottom:30px ;
+  // background-color: #fffaf0;
 }
 
 h3{
@@ -331,7 +332,9 @@ h3{
 }
 
 .list-num{
-  margin-left: 100px;
+  margin: 0 20px 0 70px ;
+  border-bottom: 1px solid black;
+  padding-left: 10px ;
 }
  
 /* リスト・プロセス一覧 */
@@ -474,14 +477,14 @@ h3{
   background-color:#e5a323;
   color: #fff9f5;
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 10px;
   transition: all 0.2s;
 }
 
 .all-check-btn:hover{
   background-color:#bc611e;
   border-radius: 10px; 
-  padding: 5px 5px 5px 10px; 
+  padding: 8px 5px 8px 10px; 
 }
 
 .remind-block{
@@ -526,18 +529,20 @@ h3{
 
 .check{
   margin-right: 7px;
-  padding: 2px;
+  padding: 2px 4px;
   transition: all 0.2s;
   color: #fff9f5;
   background-color: #e5a323;
-  border-radius: 10%;
+  border-radius: 10px;
 
 }
 
 .check:hover{
   background-color:#bc611e;
   border-radius: 10px; 
-  padding: 5px 5px 5px 10px; 
+  padding: 1px 6px; 
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 .check-btn{
@@ -674,7 +679,10 @@ h3{
   z-index: 1;
 }
 
-
+.return-box{
+  margin-top: 30px ;
+  margin-left: 60px;
+}
 
 
 
@@ -711,6 +719,8 @@ h3{
 
 .element-btn{
   margin-right: 7px;
+  margin-top: 1px;
+  margin-bottom: 1px;
   padding: 5px 10px;
   color: #fff9f5;
   background-color: #e5a323;
@@ -720,6 +730,8 @@ h3{
 
 .element-btn:hover{
   border: 1px solid #bc611e;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .element-btn-text{
@@ -750,14 +762,15 @@ h3{
 
 .list-show-congratulations{
   position: absolute;
-  top: -40px;
+  top: -250px;
   left: -20px;
-  background-color:rgba($color: red, $alpha: 0.9);
-  transform: rotate(-5deg);
+  background-color:rgba($color: red, $alpha: 1.0);
+  transform: rotate(-2deg);
   color: rgba($color:white, $alpha: 1.0);
   border-radius: 5px;
   padding: 0 10px;
   z-index: 500;
+  font-size: 40px;
 }
 
 
@@ -863,8 +876,8 @@ h3{
 
 .proces-congratulations{
   position: absolute;
-  left: 150px;
-  background-color:rgba($color: red, $alpha: 0.9);
+  left: 195px;
+  background-color:rgba($color: red, $alpha: 1.0);
   transform: rotate(-5deg);
   color: rgba($color:white, $alpha: 1.0);
   border-radius: 5px;
@@ -885,13 +898,15 @@ h3{
 .process-title{
   font-weight: bold;
   border-bottom: 1px solid black;
-  border-radius: 5%;
-  padding: 0 5px;
+  border-radius: 10%;
+  padding: 0 10px;
   z-index: 100;
+
 }
 
 .process-title:hover{
   background-color: #ffdd0085;
+  border-radius: 10px;
 }
 
 .proces-date-box{
@@ -947,6 +962,10 @@ h3{
   z-index: 100;
 }
 
+.done-process-edit-btn{
+  width: 102px;
+}
+
 .sukima{
   margin: 10px;
 }
@@ -958,6 +977,34 @@ h3{
 
 
 ////リスト詳細
+
+
+// プロセスshow
+
+.process-big-title{
+  padding-left: 30px;
+}
+
+
+.process-show-congratulations{
+  position: absolute;
+  top: -240px;
+  left: -20px;
+  background-color:rgba($color: red, $alpha: 1.0);
+  transform: rotate(-2deg);
+  color: rgba($color:white, $alpha: 1.0);
+  border-radius: 5px;
+  padding: 0 10px;
+  z-index: 500;
+  font-size: 40px;
+}
+
+.done-list-show-btn{
+  height: 26px;
+}
+
+// //プロセスshow
+
 
 
 

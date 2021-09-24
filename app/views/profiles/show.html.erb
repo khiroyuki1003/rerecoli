@@ -5,7 +5,7 @@
   <div class="main-contents">
     <h2>
       プロフィール
-    </h2>
+    </h2> 
 
     <div class="profile-show">
 
@@ -39,6 +39,12 @@
 
       <div class="element-btn">
         <%= link_to "プロフィールを編集する",  edit_profile_path(@profile.id), class: "element-btn-text" %>
+      </div>
+      <div class="sukima">
+      </div>
+      <div class="list-show-btn">
+        <i class="fas fa-arrow-circle-left"></i>
+        <%= link_to "戻る", root_path, class:"list-show-btn-text" %>
       </div>
     </div>
   </div>

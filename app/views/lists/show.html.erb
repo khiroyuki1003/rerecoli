@@ -7,15 +7,15 @@
       <div class="list-category-title">
         <%= truncate(@list.category.category_name, :length => 17) %>
       </div>
-       
-      <h2 class="list-show-title">
-        <%= @list.list_title %>
+        
+      <h2 class="to-do">
+        やりたい事
         <% if @list.list_deadline.status == "done" %>
           <div class="list-show-congratulations">
             Congratulations!!
           </div>
         <% end %>
-      </h2>
+      </h2> 
 
       <div class="list-show-box">
         <div class="achieve-btn-big-box">
@@ -34,12 +34,25 @@
           <% end %>
         </div>
 
+        <div class="list-show-content-box  list-show-title">
+          <div class="list-show-content-title">やりたい事</div>
+          <div class="list-show-content-detail list-detail-box"><%= @list.list_title %></div>
+          <% if @list.list_deadline.status == "done" %>
+            <div class="list-show-congratulations">
+              Congratulations!!
+            </div>
+          <% end %>
+        </div>
+
         <div class="list-show-content-box">
           <div class="list-show-content-title">やりたい事の詳細</div>
           <div class="list-show-content-detail list-detail-box"><%= @list.list_detail%></div>
-          <div class="list-show-btn">
-            <%= link_to "リストを修正する",  edit_profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
-          </div>
+          
+          <% if @list.list_deadline.status == "unfinished" %>
+            <div class="list-show-btn">
+              <%= link_to "リストを修正する",  edit_profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
+            </div>
+          <% end %>
         </div>
         
         
@@ -60,9 +73,12 @@
               設定時刻 <%= @list.list_deadline.list_deadline_time.strftime( "%H:%M" ) %> 
             </div>
           </div>
-          <div class="list-show-btn">
-            <%= link_to "達成目標日を変更する", edit_profile_category_list_list_deadline_path(@user.profile.id, @category.id, @list.id, @list.list_deadline.id ), class:"list-show-btn-text"  %>
-          </div>
+
+          <% if @list.list_deadline.status == "unfinished" %>
+            <div class="list-show-btn">
+              <%= link_to "達成目標日を変更する", edit_profile_category_list_list_deadline_path(@user.profile.id, @category.id, @list.id, @list.list_deadline.id ), class:"list-show-btn-text"  %>
+            </div>
+          <% end %>
         </div>
         
         
@@ -74,9 +90,11 @@
           <div class="list-show-content-title">達成に向けたプロセス</div>
 
           <%# リマインド新規作成へのリンク %>
-          <div class="list-show-btn">
-            <%= link_to "プロセスを追加する",    new_profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text"  %>
-          </div>
+          <% if @list.list_deadline.status == "unfinished" %>
+            <div class="list-show-btn">
+              <%= link_to "プロセスを追加する",    new_profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text"  %>
+            </div>
+          <% end %>
           <%# /リマインド新規作成へのリンク %>
 
           <%# リマインド一覧表示 %>
@@ -90,7 +108,7 @@
                         <div class="proces-congratulations">
                           Congratulations!!
                         </div>
-                      <% end %>
+                      <% end %> 
 
                       <div class="process-main-box">
                         <div class='process-title'>
@@ -119,9 +137,14 @@
                               <%= link_to '未達成に戻す', done_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), method: :post, class:"process-achieve-btn-text" %>
                           <% end %>
                         </div>
-                        <div class="process-btn process-edit-btn">
-                          <%= link_to "編集", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), class:"process-achieve-btn-text" %>
-                        </div>
+                        <% if remind.status == "unfinished" %>
+                          <div class="process-btn process-edit-btn">
+                            <%= link_to "編集", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), class:"process-achieve-btn-text" %>
+                          </div>
+                        <% else %>
+                          <div class="done-process-edit-btn">
+                          </div>
+                        <% end %>
                         <div class="process-btn">
                           <%= link_to "削除", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' }, class:"process-achieve-btn-text" %>
                         </div> 

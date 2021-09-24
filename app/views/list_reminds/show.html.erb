@@ -8,13 +8,8 @@
         <%= truncate(@list.list_title, :length => 17) %>
       </div>
 
-      <h2 class="list-show-title">
-        <%= @list_remind.list_remind_title %>
-        <% if @list_remind.status == "done" %>
-          <div class="list-show-congratulations">
-            Congratulations!!
-          </div>
-        <% end %>
+      <h2 class="process-big-title">
+        達成に向けたプロセス
       </h2>
 
       <div class="list-show-box">
@@ -32,8 +27,24 @@
 
         <div class="sukima">
         </div>
-        <div class="list-show-btn">
-          <%= link_to "編集する", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, @list_remind.id), class:"list-show-btn-text" %>
+
+        <% if @list_remind.status == "unfinished" %>
+          <div class="list-show-btn">
+            <%= link_to "編集する", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, @list_remind.id), class:"list-show-btn-text" %>
+          </div>
+        <% else %>
+          <div class="done-list-show-btn">
+          </div>
+        <% end %>
+
+        <div class="list-show-content-box list-show-title">
+          <% if @list_remind.status == "done" %>
+            <div class="process-show-congratulations">
+              Congratulations!!
+            </div>
+          <% end %>
+          <div class="list-show-content-title">プロセスの概要</div>
+          <div class="list-show-content-detail list-detail-box"><%= @list_remind.list_remind_title %></div>
         </div>
 
         <div class="list-show-content-box">
