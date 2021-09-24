@@ -61,7 +61,8 @@
                   end_year: ( Time.now.year + 100 ),
                   selected: Date.today,
                   date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>"
+                %>
                 </div>
             </div>
             <div class="profile-box time-select-group">
@@ -69,7 +70,13 @@
                 <label class="form-text">リマインドする時刻※必須</label>
               </div>
               <div class='profile-edit-box'>
-                <%= f.time_select(:list_deadline_time, minute_step: 15, selected: Date.today + 10.hour ) %>
+                <%= raw sprintf(
+                  f.time_select(
+                    :list_deadline_time, minute_step: 15, 
+                    selected: Date.today + 10.hour,
+                    time_separator: '%s' ),
+                    "<p> 時 </p>") + "<p> 分 </p>"
+                 %>
               </div>
             </div>
             <%# /list_list_deadlineテーブルに保存する情報 %>
