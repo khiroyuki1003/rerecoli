@@ -645,7 +645,21 @@ h3{
   padding: 0 5px;
   border-radius: 3px;
   z-index: 100;
+  // margin-top: 0;
+  margin-bottom: 1px;
 }
+
+.list-delete-btn{
+  margin-left: 10px;
+}
+
+.list-delete-btn:hover{
+  border-bottom: 1px solid #bc611e;
+  margin-bottom: 0;
+}
+
+
+
 
 .a-list-achieve-btn{
   color: #fffaf0;
