@@ -54,7 +54,13 @@
                 <label class="form-text">リマインドする時刻※必須</label>
               </div>
               <div class='profile-edit-box'>
-                <%= f.time_select(:list_remind_time, minute_step: 15, selected: Date.today + 10.hour ) %>
+                <%= raw sprintf(
+                  f.time_select(
+                    :list_remind_time, minute_step: 15, 
+                    selected: Date.today + 10.hour,
+                    time_separator: '%s' ),
+                    "<p> 時 </p>") + "<p> 分 </p>"
+                 %>
               </div>
             </div>
 
