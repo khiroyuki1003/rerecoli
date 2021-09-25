@@ -2,6 +2,8 @@
 ### ログイン前
 [![Image from Gyazo](https://i.gyazo.com/b8498b658aeb478f4502065a3ad6012b.jpg)](https://gyazo.com/b8498b658aeb478f4502065a3ad6012b)
 
+<br>
+
 ### ログイン後（例）
 [![Image from Gyazo](https://i.gyazo.com/4344e56aa8cf88714b13a3ccdca5188f.png)](https://gyazo.com/4344e56aa8cf88714b13a3ccdca5188f)
 
