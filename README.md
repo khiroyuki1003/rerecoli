@@ -133,33 +133,46 @@
 
 ## 実装した機能についての画像やGIF動画
 ### ユーザー新規登録機能
-https://raw.github.com/wiki/<ユーザ名>/<リポジトリ名>/<画像へのパス>
 
-![demo](https://raw.github.com/wiki/khiroyuki1003/rerecoli/images/regist.gif)
-
-[![Image from Gyazo](https://i.gyazo.com/6c5da268fa363eba8a7194560a916bac.gif)](https://gyazo.com/6c5da268fa363eba8a7194560a916bac)
+![regist (1)](https://user-images.githubusercontent.com/87423529/134757589-d196b858-de77-437a-9a44-9a9f418c8d85.gif)
 
 <br>
 
 ### プロフィール登録機能
 
+![profile-regist](https://user-images.githubusercontent.com/87423529/134757829-c9a809cb-7fa8-4484-b302-56a69962d608.gif)
+
+
 <br>
 
 ### ユーザーログイン機能
+
+![rogin](https://user-images.githubusercontent.com/87423529/134758203-7b92696f-542d-4d45-8f58-3950436b6bd2.gif)
+
 
 <br>
 
 ### ユーザーログアウト機能
 
-<br>
+![rogout](https://user-images.githubusercontent.com/87423529/134758030-1a3481cd-319b-4a8a-bd52-822272f95f56.gif)
 
-### プロフィール編集機能
 
 <br>
 
 ### プロフィール詳細表示機能
 
+![profile-show](https://user-images.githubusercontent.com/87423529/134758372-2a67d257-e1e6-455d-a410-e885059b42cc.gif)
+
+
 <br>
+
+### プロフィール編集機能
+
+![progile-edit](https://user-images.githubusercontent.com/87423529/134758457-c31f751b-686b-4663-9cc8-d60b979219aa.gif)
+
+
+<br>
+
 
 ### カテゴリ新規作成機能
 
