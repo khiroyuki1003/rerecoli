@@ -8,7 +8,7 @@
         <div class='form-wrap'>
           <div class='form-header'>
             <h1 class='form-header-text'>
-              <%= @list.list_title %>
+              <%= truncate(@list.list_title, :length => 16) %>
             </h1>
           </div>
           <div class='form-header'>
