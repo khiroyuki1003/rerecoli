@@ -176,25 +176,44 @@
 
 ### カテゴリ新規作成機能
 
+![category-new](https://user-images.githubusercontent.com/87423529/134758773-a63a73a9-32ba-4020-98cd-c2889c09f721.gif)
+
 <br>
 
+### カテゴリ一覧表示機能
+
+[![Image from Gyazo](https://i.gyazo.com/c5841826c9254a9e12175d7d8c3ad42e.png)](https://gyazo.com/c5841826c9254a9e12175d7d8c3ad42e)
+
+<br>
+
+
+### カテゴリ詳細表示機能
+
+![category-show](https://user-images.githubusercontent.com/87423529/134759000-3e4e32d3-b0e9-45c2-b819-2cd5b82231f9.gif)
+
+<br>
 
 ### カテゴリ名変更機能
 
-<br>
+![category-edit](https://user-images.githubusercontent.com/87423529/134759065-b1804f2c-c480-40c2-8e5e-80ba78b2259d.gif)
 
-
-### カテゴリ一覧表示機能
 
 <br>
 
 
 ### カテゴリ削除機能
 
+![category-destroy](https://user-images.githubusercontent.com/87423529/134759127-85f3c9e2-ce48-4b28-b717-3fc76431c078.gif)
+
+
 <br>
 
 
 ### リスト新規作成機能
+
+
+![list-new](https://user-images.githubusercontent.com/87423529/134759304-05adf68f-5d20-4ce6-ace9-120972bab37a.gif)
+
 
 <br>
 
