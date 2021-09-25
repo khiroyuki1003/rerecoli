@@ -73,7 +73,7 @@
 
 <br>
 
-## 目指した課題解決
+## 💡 目指した課題解決
 
 ### ペルソナ
 「いつかやりたい事」「死ぬまでにやりたい事」があるが、それを達成するための行動ができていない方へ向けたアプリです。
@@ -131,7 +131,7 @@
 
 <br>
 
-## 実装した機能についての画像やGIF動画
+## 📹 実装した機能についての画像やGIF動画
 ### ユーザー新規登録機能
 
 ![regist (1)](https://user-images.githubusercontent.com/87423529/134757589-d196b858-de77-437a-9a44-9a9f418c8d85.gif)
@@ -538,7 +538,7 @@
 
 ## 開発環境
 
-- 言語： HTML/CSS/JavaScript/Ruby
+- 言語： HTML/CSS(SCSS)/JavaScript/Ruby
 - フレームワーク: Ruby on Rails
 - データベース: MySQL
 - テストツール: RSpec
