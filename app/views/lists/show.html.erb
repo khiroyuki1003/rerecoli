@@ -117,7 +117,7 @@
                           <% else %>
                             <i class="fas fa-laugh-beam" style="color: #e5a323;"></i>
                           <% end %>
-                          <%= link_to truncate(remind.list_remind_title, :length => 13) , profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id) %>
+                          <%= link_to truncate(remind.list_remind_title, :length => 12) , profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id) %>
                         </div>
                         <div class="proces-date-box">
                           <%= remind.list_remind_date.year%>年<%= remind.list_remind_date.month %>月<%= remind.list_remind_date.day %>日
@@ -146,7 +146,7 @@
                           </div>
                         <% end %>
                         <div class="process-btn">
-                          <%= link_to "削除", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id), method: :delete, data: { confirm: 'リマインドを削除します。よろしいですか？' }, class:"process-achieve-btn-text" %>
+                          <%= link_to "削除", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id), method: :delete, data: { confirm: 'プロセスを削除します。よろしいですか？' }, class:"process-achieve-btn-text" %>
                         </div> 
                       </div>
                     </div>        
