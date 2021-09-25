@@ -29,7 +29,7 @@ class ListRemindsController < ApplicationController
     @new_list_remind = ListRemind.new(list_remind_params)
     if @new_list_remind.save
       @list_remind.destroy
-      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+      redirect_to profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, @new_list_remind.id)
     else
       render :edit
     end
