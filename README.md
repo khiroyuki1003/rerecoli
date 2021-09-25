@@ -217,69 +217,136 @@
 
 <br>
 
+### リスト一覧表示機能
+
+[![Image from Gyazo](https://i.gyazo.com/0001773cdbc8e071162fa71a29e2cdb3.png)](https://gyazo.com/0001773cdbc8e071162fa71a29e2cdb3)
+
+<br>
+
+### リスト詳細表示機能
+
+![list-show](https://user-images.githubusercontent.com/87423529/134759556-a4195a7a-f9ef-44a1-9756-ada8d9566563.gif)
+
+
+<br>
 
 ### リスト編集機能
+
+![list-edit](https://user-images.githubusercontent.com/87423529/134759617-10ae7321-031b-4a9a-ac39-aea93d1d4eac.gif)
 
 <br>
 
 
 ### リストの達成目標日変更機能
 
-<br>
-
-### リスト一覧表示機能
-
-<br>
-
-### リスト詳細表示機能
+![list-deadline-edit](https://user-images.githubusercontent.com/87423529/134759696-39a04eeb-7523-4410-b2bb-c4a21b8ce534.gif)
 
 <br>
 
 ### リストの削除機能
 
+![list-destroy](https://user-images.githubusercontent.com/87423529/134759761-5d918b09-448a-4ead-a433-6967ad2be42d.gif)
+
+
 <br>
 
 ### プロセス新規作成機能
 
+#### ページ遷移
+![process-new](https://user-images.githubusercontent.com/87423529/134759988-79e49e1c-ac0d-460a-bfd5-a7bcf3220ed5.gif)
+
 <br>
 
-### プロセス編集機能
+#### 新規作成
+
+![process-create](https://user-images.githubusercontent.com/87423529/134760087-8beb8ba2-fec6-4c4a-9a25-280b00e8b556.gif)
+
 
 <br>
 
 ### プロセス一覧表示機能
 
+[![Image from Gyazo](https://i.gyazo.com/c5d2481e8c75f5ba0df0f1f65859a0e4.png)](https://gyazo.com/c5d2481e8c75f5ba0df0f1f65859a0e4)
+
 <br>
 
 ### プロセス詳細表示機能
+
+![process-show](https://user-images.githubusercontent.com/87423529/134760498-7b648f15-d4f6-4152-a01f-b5d00e62afa3.gif)
+<br>
+
+### プロセス編集機能
+
+![process-edit](https://user-images.githubusercontent.com/87423529/134760846-3b972d6a-bdc7-4d25-a841-c4112a579ffe.gif)
+
 
 <br>
 
 ### プロセスの削除機能
 
+![process-destroy](https://user-images.githubusercontent.com/87423529/134761028-b82bb078-dba8-4f68-b003-99db2f7012ff.gif)
+
+
 <br>
 
 ### リスト・プロセスのカレンダー表示機能
+
+![calendar](https://user-images.githubusercontent.com/87423529/134762390-7cf4d70c-86a8-4ba4-a38e-e4de1e067753.gif)
+
 
 <br>
 
 ### リスト・プロセスのステータス切替機能
 
+#### リスト
+##### リスト一覧画面
+
+![status-list-index](https://user-images.githubusercontent.com/87423529/134762638-bbf68d76-e0dc-410f-b639-7636a1b551af.gif)
+
+<br>
+
+##### リスト詳細画面
+
+![status-list-show](https://user-images.githubusercontent.com/87423529/134762718-fc5f81aa-5659-489c-9c3c-8b33a22a21e2.gif)
+
+
+<br>
+
+#### プロセス
+##### プロセス一覧画面
+
+![status-process-index](https://user-images.githubusercontent.com/87423529/134762809-cf128c3a-471f-4ea2-b96b-3ae3674ed88e.gif)
+
+<br>
+
+##### プロセス詳細画面
+
+![status-process-show](https://user-images.githubusercontent.com/87423529/134762894-2c2eb746-0046-4b6d-b8e7-11c7922e96c5.gif)
+
 <br>
 
 ### 未達成のリスト・プロセスの一覧表示機能
+
+![unfinished-index](https://user-images.githubusercontent.com/87423529/134763247-8334ab55-fbac-4723-b9af-271d7e36736a.gif)
 
 <br>
 
 ### 達成済のリスト・プロセスの一覧表示機能
 
+![done-index](https://user-images.githubusercontent.com/87423529/134763306-fe939591-240f-4c2b-98a3-b19347ef43f4.gif)
+
 <br>
 
 ### リスト・プロセスのリマインド機能
 
+![remind-index](https://user-images.githubusercontent.com/87423529/134763375-9c3d8ea4-0b64-48bf-a24c-cb21d967b759.gif)
+
 <br>
 
 ### リマインド非表示機能
+
+![remind-check](https://user-images.githubusercontent.com/87423529/134763543-7a0f4301-83ca-4632-acf4-0803cda36674.gif)
+
 
 <br>
 
@@ -288,11 +355,184 @@
 
 <br>
 
+- 非同期通信
+  - ページ遷移
+  - ステータス変更
+  - データの編集・更新
+
+<br>
+
+- リストの実行を誰かと約束する機能
+  - フォロー機能
+  - リストの共有機能
+  - チャット機能
+
+<br>
+
+- リスト・プロセスの検索機能
+- リスト・プロセスの達成時感想の作成・表示機能
+- カテゴリの並べ替え機能
+
+
+<br>
+
+
 ## データベース設計
+
+### Users テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+
+
+#### Association
+
+- has_one :profile
+
+<br>
+
+### Profiles テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false, unipue: true |
+| precions_word    | string |  |
+| birth_date       | date | null: false |
+| user             | references | null: false, foreign_key: true |
+
+
+#### Association
+
+- belongs_to :user
+- has_many :categories
+- has_many :list_deadlines
+- has_many :list_reminds
+- has_many :reminds
+
+
+<br>
+
+
+### Categories テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| category_name   | string | null: false |
+| profile          | references | null: false, foreign_key: true |
+
+
+#### Association
+
+- belongs_to :profile
+- has_many :lists
+- has_many :list_deadlines
+
+
+<br>
+
+
+###  Lists テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| list_title   | string | null: false |
+| list_detail   | text |  |
+| priolity_id      | integer |  |
+| category   | references | null: false, foreign_key: true |
+
+
+#### Association
+
+- belongs_to :category
+- has_one :list_deadline
+- has_many :list_reminds
+
+<br>
+
+
+###  List_deadlines テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| list_deadline_date   | date | null: false |
+| list_deadline_time   | time | null: false |
+| status      | string | default: "unfinished" |
+| profile   | references | null: false, foreign_key: true |
+| category   | references | null: false, foreign_key: true |
+| list   | references | null: false, foreign_key: true |
+
+
+#### Association
+
+- belongs_to :profile
+- belongs_to :category
+- belongs_to :list 
+- has_many :reminds
+
+<br>
+
+
+###  List_reminds テーブル (プロセスとして利用)
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| list_remind_title   | string | null: false |
+| list_remind_detail   | text |  |
+| list_remind_date   | date | null: false |
+| list_remind_time   | time | null: false |
+| status      | string | default: "unfinished" |
+| profile   | references | null: false, foreign_key: true |
+| list   | references | null: false, foreign_key: true |
+
+
+#### Association
+
+- belongs_to :profile
+- belongs_to :list 
+- has_many :reminds
+
+<br>
+
+
+###  Reminds テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| profile   | references | null: false, foreign_key: true |
+| list_deadline   | references | foreign_key: true |
+| list_remind   | references | foreign_key: true |
+| action   | string | null: false, default: "" |
+| checked   | boolean | null: false, default: false |
+
+
+#### Association
+
+- belongs_to :profile
+- belongs_to :list_deadline
+- belongs_to :list_remind
 
 <br>
 
 ## ローカルでの動作方法
+
+#### ダウンロードとインストールの手順
+
+1. このリポジトリのクローンを作成してください。<br>
+`$ git clone https://github.com/khiroyuki1003/rerecoli.git`<br>
+2. リポジトリに移動してください。<br>
+`$ cd rerecoli`<br>
+3. 依存関係をインストールしてください。<br>
+`$ bundle install`<br>
+`$ yarn install`<br>
+4. データベースを作成してください。<br>
+`$ rails db:create`<br>
+5. データベースを実行してください。<br>
+`$ rails db:migrate`<br>
+6. アプリケーションを実行してください。<br>
+`$ rails s`
+
 
 <br>
 
