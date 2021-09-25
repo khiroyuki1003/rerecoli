@@ -538,6 +538,12 @@
 
 ## 開発環境
 
+- 言語： HTML/CSS/JavaScript/Ruby
+- フレームワーク: Ruby on Rails
+- データベース: MySQL
+- テストツール: RSpec
+- デプロイ:Heroku
+
 <br>
 
 ## 最後までお目通しいただき有り難うございました。
