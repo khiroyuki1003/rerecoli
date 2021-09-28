@@ -159,7 +159,7 @@
 | 機能　　　　  　　　  | 目的　　　　　　　　　　　　　　　　 | 詳細　　　　　　　　　　　　　　　　　 |
 |:-----------|:------------|:------------|
 | [ユーザー新規登録機能](#anchor14)       | ユーザー毎に「やりたい事」を管理する為。        | メールアドレス・パスワードを入力すると登録できる。         |
-| [ユーザーログイン機能](#anchor39)   | 登録済のユーザーがアプリを利用する為。      | 登録したメールアドレス・パスワードを入力するとログインできる。       |
+| [ユーザーログイン機能](#anchor14)   | 登録済のユーザーがアプリを利用する為。      | 登録したメールアドレス・パスワードを入力するとログインできる。       |
 | [ユーザーログアウト機能](#anchor15)       | ユーザーがログアウト可能にする為        | サイドバーの「ログアウト」をクリックするとログアウトできる。         |
 | [プロフィール登録機能](#anchor16)       | 行動促進に必要なデータを登録する為。        | ニックネーム・生年月日を入力・選択すると登録できる。任意で大切にしている言葉の設定も可能。         |
 | [プロフィール編集機能](#anchor17)         | 登録したプロフィールを変更可能にする為。          | 登録済のデータを編集・更新できる。           |
@@ -207,6 +207,8 @@
 
 <br>
 
+<a id="anchor16"></a>
+
 ### プロフィール登録機能
 
 ![profile-regist](https://user-images.githubusercontent.com/87423529/134757829-c9a809cb-7fa8-4484-b302-56a69962d608.gif)
@@ -214,12 +216,16 @@
 
 <br>
 
+<a id="anchor39"></a>
+
 ### ユーザーログイン機能
 
 ![rogin](https://user-images.githubusercontent.com/87423529/134758203-7b92696f-542d-4d45-8f58-3950436b6bd2.gif)
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor15"></a>
 
 ### ユーザーログアウト機能
 
@@ -229,6 +235,8 @@
 
 <br>
 
+<a id="anchor18"></a>
+
 ### プロフィール詳細表示機能
 
 ![profile-show](https://user-images.githubusercontent.com/87423529/134758372-2a67d257-e1e6-455d-a410-e885059b42cc.gif)
@@ -236,6 +244,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor17"></a>
 
 ### プロフィール編集機能
 
@@ -245,6 +255,7 @@
 
 <br>
 
+<a id="anchor19"></a>
 
 ### カテゴリ新規作成機能
 
@@ -253,6 +264,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor21"></a>
 
 ### カテゴリ一覧表示機能
 
@@ -271,6 +284,8 @@
 
 <br>
 
+<a id="anchor20"></a>
+
 ### カテゴリ名変更機能
 
 ![category-edit](https://user-images.githubusercontent.com/87423529/134759065-b1804f2c-c480-40c2-8e5e-80ba78b2259d.gif)
@@ -279,6 +294,7 @@
 
 <br>
 
+<a id="anchor22"></a>
 
 ### カテゴリ削除機能
 
@@ -288,6 +304,7 @@
 
 <br>
 
+<a id="anchor23"></a>
 
 ### リスト新規作成機能
 
@@ -298,6 +315,8 @@
 
 <br>
 
+<a id="anchor26"></a>
+
 ### リスト一覧表示機能
 
 [![Image from Gyazo](https://i.gyazo.com/0001773cdbc8e071162fa71a29e2cdb3.png)](https://gyazo.com/0001773cdbc8e071162fa71a29e2cdb3)
@@ -305,6 +324,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor27"></a>
 
 ### リスト詳細表示機能
 
@@ -314,6 +335,8 @@
 
 <br>
 
+<a id="anchor24"></a>
+
 ### リスト編集機能
 
 ![list-edit](https://user-images.githubusercontent.com/87423529/134759617-10ae7321-031b-4a9a-ac39-aea93d1d4eac.gif)
@@ -322,6 +345,7 @@
 
 <br>
 
+<a id="anchor25"></a>
 
 ### リストの達成目標日変更機能
 
@@ -331,6 +355,8 @@
 
 <br>
 
+<a id="anchor28"></a>
+
 ### リストの削除機能
 
 ![list-destroy](https://user-images.githubusercontent.com/87423529/134759761-5d918b09-448a-4ead-a433-6967ad2be42d.gif)
@@ -338,6 +364,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor29"></a>
 
 ### プロセス新規作成機能
 
@@ -356,6 +384,8 @@
 
 <br>
 
+<a id="anchor31"></a>
+
 ### プロセス一覧表示機能
 
 [![Image from Gyazo](https://i.gyazo.com/c5d2481e8c75f5ba0df0f1f65859a0e4.png)](https://gyazo.com/c5d2481e8c75f5ba0df0f1f65859a0e4)
@@ -363,6 +393,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor32"></a>
 
 ### プロセス詳細表示機能
 
@@ -372,6 +404,8 @@
 
 <br>
 
+<a id="anchor30"></a>
+
 ### プロセス編集機能
 
 ![process-edit](https://user-images.githubusercontent.com/87423529/134760846-3b972d6a-bdc7-4d25-a841-c4112a579ffe.gif)
@@ -379,6 +413,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor33"></a>
 
 ### プロセスの削除機能
 
@@ -388,6 +424,8 @@
 
 <br>
 
+<a id="anchor34"></a>
+
 ### リスト・プロセスのカレンダー表示機能
 
 ![calendar](https://user-images.githubusercontent.com/87423529/134762390-7cf4d70c-86a8-4ba4-a38e-e4de1e067753.gif)
@@ -395,6 +433,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor35"></a>
 
 ### リスト・プロセスのステータス切替機能
 
@@ -427,6 +467,8 @@
 
 <br>
 
+<a id="anchor36"></a>
+
 ### 未達成のリスト・プロセスの一覧表示機能
 
 ![unfinished-index](https://user-images.githubusercontent.com/87423529/134763247-8334ab55-fbac-4723-b9af-271d7e36736a.gif)
@@ -434,6 +476,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor37"></a>
 
 ### 達成済のリスト・プロセスの一覧表示機能
 
@@ -443,6 +487,8 @@
 
 <br>
 
+<a id="anchor40"></a>
+
 ### リスト・プロセスのリマインド機能
 
 ![remind-index](https://user-images.githubusercontent.com/87423529/134763375-9c3d8ea4-0b64-48bf-a24c-cb21d967b759.gif)
@@ -450,6 +496,8 @@
 [要件定義を見る](#anchor5)
 
 <br>
+
+<a id="anchor38"></a>
 
 ### リマインド非表示機能
 
