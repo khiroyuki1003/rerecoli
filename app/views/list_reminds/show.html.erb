@@ -56,6 +56,8 @@
         <div class="list-show-content-box">
           <div class="list-show-content-title">達成目標日</div>
           <div class="list-show-content-detail achieve-date">
+
+            <%# 達成目標日時の年齢を表示 %>
             <div>
               <%= @list_remind.list_remind_date.year%>年<%= @list_remind.list_remind_date.month %>月<%= @list_remind.list_remind_date.day %>日
               (<% if ( @user.profile.birth_date.month == @list_remind.list_remind_date.month && @user.profile.birth_date.day >= @list_remind.list_remind_date.day ) || @user.profile.birth_date.month >= @list_remind.list_remind_date.month %>
@@ -64,6 +66,7 @@
                 <%= @list_remind.list_remind_date.year - @user.profile.birth_date.year %>歳
               <% end %>)
             </div>
+            <%# //達成目標日時の年齢を表示 %>
 
             <div class="time-box">
               設定時刻 <%= @list_remind.list_remind_time.strftime( "%H:%M" ) %> 
@@ -71,9 +74,6 @@
           </div>
         </div>
 
-
-        
-        
         <div class="list-show-btn">
           <%= link_to "削除する", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, @list_remind.id), method: :delete, data: { confirm: 'プロセスを削除します。よろしいですか？' }, class:"list-show-btn-text" %>
         </div>

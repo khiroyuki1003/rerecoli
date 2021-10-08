@@ -1,7 +1,12 @@
+<%# ログインユーザーのトップページ %>
+
+<%# プロフィール登録の有無で表示を切り替える %>
 <% if @user.profile.present? %>
   <%= render "profile_save_top" %>
 <% else %>
   <%= render "profile_not_save_top" %>
 <% end %>
+<%# //プロフィール登録の有無で表示を切り替える %>
 
 
+ 

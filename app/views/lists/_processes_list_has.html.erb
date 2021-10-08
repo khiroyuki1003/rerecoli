@@ -1,0 +1,78 @@
+<div class="list-show-content-box">
+
+  <div class="list-show-content-title">達成に向けたプロセス</div>
+
+  <%# プロセス新規作成へのリンク %>
+  <% if @list.list_deadline.status == "unfinished" %>
+    <div class="list-show-btn">
+      <%= link_to "プロセスを追加する",    new_profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text"  %>
+    </div>
+  <% end %>
+  <%# //プロセス新規作成へのリンク %>
+
+  <%# プロセス一覧表示 %>
+  <div class="process-list-contents">
+    <ul class='list-lists'>
+      <% if @list_reminds.present? %>
+        <% @list_reminds.each do |remind| %>
+          <li class='list'>
+            <div class='process-info-box'>
+              <% if remind.status == "done" %>
+                <div class="proces-congratulations">
+                  Congratulations!!
+                </div>
+              <% end %> 
+
+              <div class="process-main-box">
+                <div class='process-title'>
+                  <% if remind.status == "unfinished" %>
+                    <i class="fas fa-running" style="color: #e5a323;"></i>
+                  <% else %>
+                    <i class="fas fa-laugh-beam" style="color: #e5a323;"></i>
+                  <% end %>
+                  <%= link_to truncate(remind.list_remind_title, :length => 12) , profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id) %>
+                </div>
+                <div class="proces-date-box">
+                  <%= remind.list_remind_date.year%>年<%= remind.list_remind_date.month %>月<%= remind.list_remind_date.day %>日
+                  (<% if ( @user.profile.birth_date.month == remind.list_remind_date.month && @user.profile.birth_date.day >= remind.list_remind_date.day ) || @user.profile.birth_date.month >= remind.list_remind_date.month %>
+                    <%= remind.list_remind_date.year - @user.profile.birth_date.year - 1 %>歳
+                  <% else %>
+                    <%= remind.list_remind_date.year - @user.profile.birth_date.year %>歳
+                  <% end %>)
+                </div>
+              </div>
+
+              <div class="process-btn-box">
+                <div class="process-achieve-btn">
+                  <% if remind.status == "unfinished" %>
+                      <%= link_to '　　達成！', done_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), method: :post, class:"process-achieve-btn-text" %>
+                  <% else %>
+                      <%= link_to '未達成に戻す', done_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), method: :post, class:"process-achieve-btn-text" %>
+                  <% end %>
+                </div>
+                <% if remind.status == "unfinished" %>
+                  <div class="process-btn process-edit-btn">
+                    <%= link_to "編集", edit_profile_category_list_list_remind_path( @user.profile.id, @category.id, @list.id, remind.id), class:"process-achieve-btn-text" %>
+                  </div>
+                <% else %>
+                  <div class="done-process-edit-btn">
+                  </div>
+                <% end %>
+                <div class="process-btn">
+                  <%= link_to "削除", profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, remind.id), method: :delete, data: { confirm: 'プロセスを削除します。よろしいですか？' }, class:"process-achieve-btn-text" %>
+                </div> 
+              </div>
+            </div>        
+          </li>
+        <% end %>
+
+      <% else %>
+        <div>
+          プロセスはありません。
+        </div>
+
+      <% end %>
+    </ul>
+  </div>
+  <%# //プロセス一覧表示 %>
+</div>

@@ -7,7 +7,7 @@ class  ListListDeadline
     maximum: 100, message:"is invalid. Please enter at least 100 characters"
    }
 
-   with_options presence: true do
+  with_options presence: true do
     validates :list_deadline_date
     validates :list_deadline_time
   end
