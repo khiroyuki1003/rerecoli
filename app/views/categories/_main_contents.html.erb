@@ -15,8 +15,9 @@
                 <%= link_to truncate(category.category_name, :length => 16),  profile_category_path(@user.profile.id, category.id) %>
               </h3>
               <%# /カテゴリ名表示 %>
-              <%# リストを上から３つまで取得して表示 %>
+              
               <div class="list-contents">
+                <%# カテゴリ内のリストを上から３つまで取得して表示 %>
                 <ul class='list-lists'>
                   <% if category.lists.present? %>
                     <% lists = category.lists.first(3)%> 
@@ -28,14 +29,16 @@
                         </h4>      
                       </li>
                     <% end %> 
-                  <% end %> 
+                  <% end  %>
+                  <%# //カテゴリ内のリストを上から３つまで取得して表示 %>
+
                   <%# カテゴリ内リストの総数表示 %>
                   <div class="list-num">
                       カテゴリ内のリスト数：<%= category.lists.length %>
                   </div>
+                  <%# //カテゴリ内リストの総数表示 %>
                 </ul>
               </div>
-              <%# リストを上から３つまで取得して表示 %>
           </li>
         <% end %>
       <% end %>

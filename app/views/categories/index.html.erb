@@ -1,5 +1,7 @@
+<%# ログインの有無で表示を変える %>
 <% if user_signed_in? %>
   <%= render "login_user_top" %>
 <% else %>
   <%= render "new_user_top" %>
-<% end %>
+<% end %> 
+<%# //ログインの有無で表示を変える %>

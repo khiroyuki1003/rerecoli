@@ -4,18 +4,21 @@
   </div>
   <div class="main-contents">
     <div class="contents">
+
+      <div class='form-header'>
+        <h1 class='form-header-text'>
+          <%= truncate(@list.list_title, :length => 16) %>
+        </h1>
+      </div>
+      <div class='form-header'>
+        <h2 class='form-header-text'>
+          プロセス編集
+        </h2>
+      </div>
+
       <%= form_with model: @list_remind, url: profile_category_list_list_remind_path(@user.profile.id, @category.id, @list.id, @list_remind.id), local: true do |f| %>
         <div class='form-wrap'>
-          <div class='form-header'>
-            <h1 class='form-header-text'>
-              <%= @list.list_title %>
-            </h1>
-          </div>
-          <div class='form-header'>
-            <h2 class='form-header-text'>
-              プロセス編集
-            </h2>
-          </div>
+          
 
           <%= render 'shared/error_messages', model: @list_remind %>
           

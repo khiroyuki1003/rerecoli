@@ -1,0 +1,61 @@
+<div class="achieve-btn-big-box">
+  <% if @list.list_deadline.status == "unfinished" %>
+    <%= link_to '　　達成！', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, @list.id, @list.list_deadline.id), method: :post, class: "a-list-achieve-btn" %>
+  <% else %>
+    <%= link_to '未達成に戻す', done_profile_category_list_list_deadline_path( @user.profile.id, @category.id, @list.id, @list.list_deadline.id), method: :post, class: "a-list-achieve-btn" %>
+  <% end %>
+</div>
+
+<div class="priority-box">
+  <% if @list.priority.present? %>
+    優先度：<%= @list.priority.name%>
+  <% else %>
+    優先度： --
+  <% end %>
+</div>
+
+<div class="list-show-content-box  list-show-title">
+  <div class="list-show-content-title">やりたい事</div>
+  <div class="list-show-content-detail list-detail-box"><%= @list.list_title %></div>
+  <% if @list.list_deadline.status == "done" %>
+    <div class="list-show-congratulations">
+      Congratulations!!
+    </div>
+  <% end %>
+</div>
+
+<div class="list-show-content-box">
+  <div class="list-show-content-title">やりたい事の詳細</div>
+  <div class="list-show-content-detail list-detail-box"><%= @list.list_detail%></div>
+  
+  <% if @list.list_deadline.status == "unfinished" %>
+    <div class="list-show-btn">
+      <%= link_to "リストを修正する",  edit_profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="list-show-content-box">
+  <div class="list-show-content-title">達成目標日</div>
+  <div class="list-show-content-detail achieve-date">
+    <div>
+      <%= @list.list_deadline.list_deadline_date.year%>年<%= @list.list_deadline.list_deadline_date.month %>月<%= @list.list_deadline.list_deadline_date.day %>日
+      (<% if ( @user.profile.birth_date.month == @list.list_deadline.list_deadline_date.month && @user.profile.birth_date.day >= @list.list_deadline.list_deadline_date.day ) || @user.profile.birth_date.month >= @list.list_deadline.list_deadline_date.month %>
+        <%= @list.list_deadline.list_deadline_date.year - @user.profile.birth_date.year - 1 %>歳
+      <% else %>
+        <%= @list.list_deadline.list_deadline_date.year - @user.profile.birth_date.year %>歳
+      <% end %>)
+    </div>
+    
+    <div class="time-box">
+      設定時刻 <%= @list.list_deadline.list_deadline_time.strftime( "%H:%M" ) %> 
+    </div>
+  </div>
+
+  <% if @list.list_deadline.status == "unfinished" %>
+    <div class="list-show-btn">
+      <%= link_to "達成目標日を変更する", edit_profile_category_list_list_deadline_path(@user.profile.id, @category.id, @list.id, @list.list_deadline.id ), class:"list-show-btn-text"  %>
+    </div>
+  <% end %>
+</div>

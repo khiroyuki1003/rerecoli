@@ -4,13 +4,15 @@
   </div>
   <div class="main-contents">
     <div class="contents">
+
+      <div class='form-header'>
+        <h2 class='form-header-text'>
+          リスト新規作成
+        </h2>
+      </div>
+
       <%= form_with model: @list, url: profile_category_lists_path(@user.profile.id, @category.id), local: true do |f| %>
         <div class='form-wrap'>
-          <div class='form-header'>
-            <h2 class='form-header-text'>
-              リスト新規作成
-            </h2>
-          </div>
 
           <%= render 'shared/error_messages', model: @list %>
           

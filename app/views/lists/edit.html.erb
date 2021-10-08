@@ -8,56 +8,56 @@
         <%= @list.category.category_name %>
       </div>
 
+      <div class='form-header'>
+        <h2 class='form-header-text'>
+          リスト修正
+        </h2>
+      </div>
+
       <%= form_with model: @list, url: profile_category_list_path(@user.profile.id, @category.id, @list.id), local: true do |f| %>
         <div class='form-wrap'>
-          <div class='form-header'>
-            <h2 class='form-header-text'>
-              リスト修正
-            </h2>
-          </div>
 
           <%= render 'shared/error_messages', model: @list %>
-
-
-            <div class="profile-show">
-              <div class="profile-box">
-                <div class='profile-title'>
-                  <label class="form-text">カテゴリ選択</label>
-                </div>
-                <div class='category-select-box'>
-                  <%= f.collection_select(:category_id, Category.where(profile_id: @user.profile.id), :id, :category_name, {selected: @category.id}, {class:"select-box", id:"category-name"}) %>
-                </div>
+ 
+          <div class="profile-show">
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">カテゴリ選択</label>
               </div>
-              <div class="profile-box">
-                <div class='profile-title'>
-                  <label class="form-text">やりたい事※必須</label>
-                </div>
-                <%= f.text_area  :list_title, class:"profile-content", id:"list_title", placeholder:"100文字以下", maxlength:"100", autofocus: true %>
-              </div>
-              <div class="profile-box">
-                <div class='profile-title'>
-                  <label class="form-text">やりたい事の詳細</label>
-                </div>
-                <%= f.text_area  :list_detail, class:"profile-content", id:"list_detail", placeholder:"詳細の内容を記録できます" %>
-              </div>
-              <div class="profile-box">
-                <div class='profile-title'>
-                  <label class="form-text">優先度</label>
-                </div>
-                <div class="priority-select-box">
-                  <%= f.collection_select(:priority_id, Priority.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
-                </div>
-              </div>
-              <div class='register-btn'>
-                <%= f.submit "修正内容を保存する" ,class:"form-btn" %> 
-              </div>
-
-              <div class="list-show-btn list-edit-return ">
-                <i class="fas fa-arrow-circle-left"></i>
-                <%= link_to "戻る", profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
+              <div class='category-select-box'>
+                <%= f.collection_select(:category_id, Category.where(profile_id: @user.profile.id), :id, :category_name, {selected: @category.id}, {class:"select-box", id:"category-name"}) %>
               </div>
             </div>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">やりたい事※必須</label>
+              </div>
+              <%= f.text_area  :list_title, class:"profile-content", id:"list_title", placeholder:"100文字以下", maxlength:"100", autofocus: true %>
+            </div>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">やりたい事の詳細</label>
+              </div>
+              <%= f.text_area  :list_detail, class:"profile-content", id:"list_detail", placeholder:"詳細の内容を記録できます" %>
+            </div>
+            <div class="profile-box">
+              <div class='profile-title'>
+                <label class="form-text">優先度</label>
+              </div>
+              <div class="priority-select-box">
+                <%= f.collection_select(:priority_id, Priority.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
+              </div>
+            </div>
+            <div class='register-btn'>
+              <%= f.submit "修正内容を保存する" ,class:"form-btn" %> 
+            </div>
+
+            <div class="list-show-btn list-edit-return ">
+              <i class="fas fa-arrow-circle-left"></i>
+              <%= link_to "戻る", profile_category_list_path(@user.profile.id, @category.id, @list.id), class:"list-show-btn-text" %>
+            </div>
           </div>
+        </div>
       <% end %> 
     </div>
   </div>
